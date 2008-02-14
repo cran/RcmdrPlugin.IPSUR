@@ -1,0 +1,14 @@
+# R Commander Exception Menu Definitions
+
+#   type    menu/item      operation/parent  label                                          command/menu                activation  install?
+
+    item    summariesMenu   command         "Numerical summaries..."                        numericalSummaries          "numericP()" "packageAvailable('abind')"
+    item    summariesMenu   command         "Frequency distributions..."                    frequencyDistribution       "factorsP()"                ""    
+
+    item    tablesMenu      command         "Two-way table..."                              twoWayTable                 "factorsP(2)" "packageAvailable('abind')"
+    item    tablesMenu      command         "Enter and analyze two-way table..."            enterTable                  ""              "packageAvailable('abind')"
+
+
+    item    graphsMenu      command         "Boxplot..."                                    boxPlot                     "numericP()"          ""
+    item    graphsMenu      command         "Bar graph..."                                  barGraph                    "factorsP()"          ""
+ 

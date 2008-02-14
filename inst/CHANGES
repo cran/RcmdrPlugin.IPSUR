@@ -1,0 +1,48 @@
+Version 0.1-0: initial version in package form
+
+Version 0.1-1:
+FEATURES
+1)	Pareto diagrams have option rainbow / nocolor
+2)	Pareto Diagrams print statistics in window
+3)	Simulate… menu fields now labeled to distinguish from Sampling Dist…
+4)	New additions to Bar Graphs:
+(a)	Variable(s) in Active Data Set…
+(b)	Plot Relative Frequencies option
+(c)	Rainbow color option
+(d)	Plot Legend option
+(e)	Plot by Goups
+(f)	Segmented bars or Side-by-side
+5)	Enter table… with all above options
+6)	New additions to Proportions menu:
+(a)	Test for equality of several proportions…
+(b)	Enter table for single sample…
+(c)	Enter table for independent samples…
+7)	RcmdrTestDrive was updated.
+
+BUGS
+1)	gammasimNumber bug fixed.
+2)	Simulate discrete uniform variates bug fixed (concerning adding to Active data set).
+3)	UpdatedisunifsimNumber bug fixed.
+4)	Sampling Distributions ->Discrete Uniform was mislabeled Cauchy.
+5)	Loading required packages at startup bug fixed.
+6)	Empty fields bug in Probability menu fixed.
+
+Version 0.1-2:
+FEATURES
+1)	Updated to Rcmdr 1.2-6.
+2)	Added suggested packages distr, distrEx.
+3) Updated and completed BloodPressure data.
+
+BUGS
+1)	influence plot bug fixed.
+
+Version 0.1-4:
+FEATURES
+1) Completely reworked to be a RcmdrPlugin.
+2) Added plotting quantile functions to distributions menu.
+3) simulation routines were optimized.
+
+BUGS
+1)	axes on horizontal boxplot were backward.
+2)  other small changes
+
