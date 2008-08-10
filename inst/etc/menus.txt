@@ -4,6 +4,16 @@
 
 #   type    menu/item      operation/parent  label                                          command/menu                activation  install?
 
+remove  frequencyDistribution  "" "" "" "" ""
+remove  numericalSummaries  "" "" "" "" ""
+remove  twoWayTable  "" "" "" "" ""
+remove  enterTable  "" "" "" "" ""
+remove  barGraph  "" "" "" "" ""
+remove  boxPlot  "" "" "" "" ""
+remove  continuousMenu  "" "" "" "" ""
+remove  discreteMenu  "" "" "" "" ""
+
+
 
 #########################
 # Statistics menu

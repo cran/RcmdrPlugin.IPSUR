@@ -106,3 +106,47 @@ function (prob = 0.5, classes = 365, coincident = 2)
     }
     round(N)
 }
+
+
+
+
+#######
+# Need this to assign numbers below
+RcmdrEnv <- function() {
+    pos <-  match("RcmdrEnv", search())
+    if (is.na(pos)) { # Must create it
+        RcmdrEnv <- list()
+        attach(RcmdrEnv, pos = length(search()) - 1)
+        rm(RcmdrEnv)
+        pos <- match("RcmdrEnv", search())
+        }
+    return(pos.to.env(pos))
+    }
+
+###############################################################
+###############################################################
+# Extra counters
+    #assign("simsetNumber", 0, envir = RcmdrEnv())
+    #assign("datasetNumber", 0, envir = RcmdrEnv())
+    assign("betasimNumber", 0, envir = RcmdrEnv())
+    assign("chisqsimNumber", 0, envir = RcmdrEnv())
+    assign("binomsimNumber", 0, envir = RcmdrEnv())
+    assign("hypersimNumber", 0, envir = RcmdrEnv())
+    assign("gammasimNumber", 0, envir = RcmdrEnv())
+    assign("expsimNumber", 0, envir = RcmdrEnv())
+    assign("normsimNumber", 0, envir = RcmdrEnv())
+    assign("fsimNumber", 0, envir = RcmdrEnv())
+    assign("tsimNumber", 0, envir = RcmdrEnv())
+    assign("cauchysimNumber", 0, envir = RcmdrEnv())
+    assign("geomsimNumber", 0, envir = RcmdrEnv())
+    assign("lnormsimNumber", 0, envir = RcmdrEnv())
+    assign("logissimNumber", 0, envir = RcmdrEnv())
+    assign("nbinomsimNumber", 0, envir = RcmdrEnv())
+    assign("poissimNumber", 0, envir = RcmdrEnv())
+    assign("weibullsimNumber", 0, envir = RcmdrEnv())
+    assign("unifsimNumber", 0, envir = RcmdrEnv())
+    assign("disunifsimNumber", 0, envir = RcmdrEnv())
+
+###############################################################
+###############################################################
+# End Extra counters
