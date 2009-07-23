@@ -4,34 +4,34 @@
 
 #   type    menu/item      operation/parent  label                                          command/menu                activation  install?
 
-remove  frequencyDistribution  "" "" "" "" ""
-remove  numericalSummaries  "" "" "" "" ""
-remove  twoWayTable  "" "" "" "" ""
-remove  enterTable  "" "" "" "" ""
-remove  barGraph  "" "" "" "" ""
-remove  boxPlot  "" "" "" "" ""
-remove  continuousMenu  "" "" "" "" ""
-remove  discreteMenu  "" "" "" "" ""
+#remove  frequencyDistribution  "" "" "" "" ""
+#remove  numericalSummaries  "" "" "" "" ""
+#remove  twoWayTable  "" "" "" "" ""
+#remove  enterTable  "" "" "" "" ""
+#remove  barGraph  "" "" "" "" ""
+#remove  boxPlot  "" "" "" "" ""
+#remove  continuousMenu  "" "" "" "" ""
+#remove  discreteMenu  "" "" "" "" ""
 
 
 
 #########################
 # Statistics menu
 
-  item    summariesMenu   command   "IPSUR - Frequency distributions..."   frequencyDistribution.ipsur    "activeDataSetP()"    "" 
-  item    summariesMenu   command   "IPSUR - Numerical summaries..."  numericalSummaries.ipsur  "numericP()"  "packageAvailable('abind') && packageAvailable('e1071')" 
+  item    summariesMenu   command   "Frequency distributions... (IPSUR)"   frequencyDistribution.ipsur    "activeDataSetP()"    "" 
+  item    summariesMenu   command   "Numerical summaries... (IPSUR)"  numericalSummaries.ipsur  "numericP()"  "packageAvailable('abind') && packageAvailable('e1071')" 
 
-  item    tablesMenu      command   "IPSUR - Two-way table..."    twoWayTable.ipsur   "factorsP(2)"   "packageAvailable('abind')" 
-  item    tablesMenu      command   "IPSUR - Enter and analyze two-way table..."  enterTable.ipsur    ""    "packageAvailable('abind')" 
+  item    tablesMenu      command   "Two-way table... (IPSUR)"    twoWayTable.ipsur   "factorsP(2)"   "packageAvailable('abind')" 
+  item    tablesMenu      command   "Enter and analyze two-way table... (IPSUR)"  enterTable.ipsur    ""    "packageAvailable('abind')" 
 
-  item    proportionsMenu command   "IPSUR - Enter table for single-sample..."   enterTableSinglePropTest    ""   "packageAvailable('abind')"  
-  item    proportionsMenu command   "IPSUR - Enter table for independent samples..."  enterTableMultiPropTest ""  "packageAvailable('abind')"   
-  item    proportionsMenu command   "IPSUR - Test for equality of several proportions..."   multiSampleProportionsTest  "multiLevelFactorsP() & twoLevelFactorsP()" "packageAvailable('abind')"
+  item    proportionsMenu command   "Enter table for single-sample... (IPSUR)"   enterTableSinglePropTest    ""   "packageAvailable('abind')"  
+  item    proportionsMenu command   "Enter table for independent samples... (IPSUR)"  enterTableMultiPropTest ""  "packageAvailable('abind')"   
+  item    proportionsMenu command   "Test for equality of several proportions... (IPSUR)"   multiSampleProportionsTest  "multiLevelFactorsP() & twoLevelFactorsP()" "packageAvailable('abind')"
 
 
 ####
   menu    powerMenu       statisticsMenu    ""                              ""	            ""    ""  
-  item    statisticsMenu  cascade           "IPSUR - Power"                 powerMenu       ""    ""
+  item    statisticsMenu  cascade           "Power (IPSUR)"                 powerMenu       ""    ""
   item    powerMenu       command           "Power for t-tests..."          powerTtest      ""		"" 
   item    powerMenu       command           "Power for two proportions..."  powerProptest   ""		"" 
   item    powerMenu       command           "Power for balanced ANOVA..."   powerAnovatest  ""    ""
@@ -40,11 +40,11 @@ remove  discreteMenu  "" "" "" "" ""
 
 ###################################
 # Graphs menu
-  item    graphsMenu      command         "IPSUR - Boxplot..."              boxPlot.ipsur     "numericP()"    "" 
-  item    graphsMenu      command         "IPSUR - Strip chart..."          stripChart        "numericP()"    ""
-  item    graphsMenu      command         "IPSUR - Pareto chart..."         paretoChart       "factorsP()"    "packageAvailable('qcc')" 
-  item    graphsMenu      command         "IPSUR - Bar Graph..."           barGraph.ipsur     "factorsP()"    ""
-  item    graphsMenu      command         "IPSUR - Bar Graph enter table..."   barPlotSumTable   ""			    "packageAvailable('abind')"
+  item    graphsMenu      command         "Boxplot... (IPSUR)"              boxPlot.ipsur     "numericP()"    "" 
+  item    graphsMenu      command         "Strip chart... (IPSUR)"          stripChart        "numericP()"    ""
+  item    graphsMenu      command         "Pareto chart... (IPSUR)"         paretoChart       "factorsP()"    "packageAvailable('qcc')" 
+  item    graphsMenu      command         "Bar Graph... (IPSUR)"           barGraph.ipsur     "factorsP()"    ""
+  item    graphsMenu      command         "Bar Graph enter table... (IPSUR)"   barPlotSumTable   ""			    "packageAvailable('abind')"
 
 
 #################################################################################################################################################
@@ -59,7 +59,7 @@ remove  discreteMenu  "" "" "" "" ""
 #  Sampling Distributions
 
   menu  samplingIpsurMenu      distributionsMenu     ""                                                 ""                                    ""	""
-  item  distributionsMenu      cascade               "IPSUR - Sampling Distributions"                   samplingIpsurMenu                     ""	""
+  item  distributionsMenu      cascade               "Sampling Distributions (IPSUR)"                   samplingIpsurMenu                     ""	""
 
   menu  cntsamplingIpsurMenu   samplingIpsurMenu     ""                                                 ""                                    ""	""
   item  samplingIpsurMenu      cascade               "Continuous Distributions"                         cntsamplingIpsurMenu                  ""	""
@@ -89,7 +89,7 @@ remove  discreteMenu  "" "" "" "" ""
 # Discrete Distributions
 
   menu  discreteIpsurMenu        distributionsMenu    ""                                               ""                                   ""	""
-  item  distributionsMenu        cascade              "IPSUR - Discrete Distributions"                 discreteIpsurMenu                    ""	""
+  item  distributionsMenu        cascade              "Discrete Distributions (IPSUR)"                 discreteIpsurMenu                    ""	""
 
   menu  PoissonIpsurMenu         discreteIpsurMenu    ""                                               ""                                   ""	""
   item  discreteIpsurMenu        cascade              "Poisson distribution"                           PoissonIpsurMenu                     ""	""
@@ -143,7 +143,7 @@ remove  discreteMenu  "" "" "" "" ""
 #  Continuous Distributions
 
   menu  continuousIpsurMenu      distributionsMenu     ""                                              ""                                   ""	""
-  item  distributionsMenu        cascade               "IPSUR - Continuous Distributions"              continuousIpsurMenu                  ""	""
+  item  distributionsMenu        cascade               "Continuous Distributions (IPSUR)"              continuousIpsurMenu                  ""	""
 
 
   menu  weibullIpsurMenu         continuousIpsurMenu   ""                                              ""                                   ""	""
@@ -232,7 +232,7 @@ remove  discreteMenu  "" "" "" "" ""
 
 #############################
 # Save for eventual Probability menu
-  item  distributionsMenu        command               "IPSUR - Birthday Problem..."                   birthdayProbabilities.ipsur          ""	""
+  item  distributionsMenu        command               "Birthday Problem... (IPSUR)"                   birthdayProbabilities.ipsur          ""	""
 
 ################################################################################################################################################
 ################################################################################################################################################
