@@ -232,7 +232,7 @@ remove  discreteMenu  "" "" "" "" ""
 
 #############################
 # Save for eventual Probability menu
-#    item    distributionsMenu   command  "IPSUR - Birthday Problem..."   birthdayProbabilities.ipsur           ""	""
+  item  distributionsMenu        command               "IPSUR - Birthday Problem..."                   birthdayProbabilities.ipsur          ""	""
 
 ################################################################################################################################################
 ################################################################################################################################################
