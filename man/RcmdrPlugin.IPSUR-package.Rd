@@ -1,7 +1,4 @@
-\name{IPSUR-package}
-\alias{IPSUR-package}
-\alias{IPSUR}
-\alias{ipsur}
+\name{RcmdrPlugin.IPSUR-package}
 \alias{RcmdrPlugin.IPSUR}
 \docType{package}
 \title{
@@ -15,12 +12,12 @@ An IPSUR Plugin for the R Commander
 \details{
 \tabular{ll}{
 Package: \tab RcmdrPlugin.IPSUR\cr
-Version: \tab 0.1-6\cr
-Date: \tab 2009-12-25\cr
+Version: \tab 0.1-8\cr
+Date: \tab 2012-03-23\cr
 Depends: \tab Rcmdr (>= 1.4-0), rgl\cr
-Suggests: \tab abind, distr, distrEx, e1071, effects (>= 1.0-7), foreign, grid, lattice, lmtest, MASS, mgcv, multcomp (>= 0.991-2), nlme, nnet, qcc, relimp, RODBC\cr
+Suggests: \tab abind, car, distr, distrEx, e1071, effects (>= 1.0-7), foreign, grid, lattice, lmtest, MASS, mgcv, multcomp (>= 0.991-2), nlme, nnet, qcc, relimp, RODBC\cr
 LazyLoad: \tab no\cr
-License: \tab GPL version 2\cr
+License: \tab GPL (>= 2)\cr
 URL: \tab http://www.r-project.org, http://ipsur.r-forge.r-project.org/\cr
 }
 
