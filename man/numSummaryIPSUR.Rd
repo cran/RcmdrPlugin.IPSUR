@@ -33,13 +33,6 @@ statistics to be reported along with information on missing data, if there are a
 
 \seealso{\code{\link[base]{mean}}, \code{\link[stats]{sd}}, \code{\link[e1071]{skewness}}, \code{\link[e1071]{kurtosis}}, \code{\link[stats]{quantile}}.}
 
-\examples{
-library(car)
-Prestige[1, "income"] <- NA
-numSummary(Prestige[,c("income", "education")])
-numSummary(Prestige[,c("income", "education")], groups=Prestige$type)
-remove(Prestige)
-}
 
 \keyword{misc}
 

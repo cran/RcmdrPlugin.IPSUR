@@ -18,10 +18,10 @@ function ()
         goodnessOfFit <- tclvalue(goodnessOfFitVariable)
         closeDialog()
         .activeDataSet <- ActiveDataSet()
-        command <- paste("table(", .activeDataSet, "$", x, ")", 
+        command <- paste(".Table <- table(", .activeDataSet, "$", x, ")", 
             sep = "")
         logger(paste(".Table <-", command))
-        assign(".Table", justDoIt(command), envir = .GlobalEnv)
+        justDoIt(command)
         doItAndPrint(".Table  # frequencies")
         doItAndPrint(".Table/sum(.Table)  # relative frequencies")
         env <- environment()
@@ -84,10 +84,10 @@ function ()
                   probs <- probs/sum(probs)
                 }
                 closeDialog(subwin)
-                command <- paste("c(", paste(probs, collapse = ","), 
+                command <- paste(".Probs <- c(", paste(probs, collapse = ","), 
                   ")", sep = "")
                 logger(paste(".Probs <-", command))
-                assign(".Probs", justDoIt(command), envir = .GlobalEnv)
+                justDoIt(command)
                 doItAndPrint("chisq.test(.Table, p=.Probs)")
                 logger("remove(.Probs)")
                 remove(.Probs, envir = .GlobalEnv)

@@ -857,9 +857,9 @@ function ()
                 message = gettextRcmdr("Number of samples not specified."))
             return()
         }
-        command <- paste("seq(", from1, ", ", to1, ", by=", by1, 
+        command <- paste("support <- seq(", from1, ", ", to1, ", by=", by1, 
             ")", sep = "")
-        assign("support", justDoIt(command), envir = .GlobalEnv)
+        justDoIt(command)
         command <- paste(dsnameValue, " <- as.data.frame(matrix(sample(support, size=", 
             samples, "*", n, ", replace=TRUE), ncol=", n, "))", 
             sep = "")

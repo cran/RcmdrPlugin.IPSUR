@@ -102,9 +102,9 @@ function ()
         expected <- tclvalue(expFreqVariable)
         fisher <- tclvalue(fisherVariable)
         closeDialog()
-        command <- paste("matrix(c(", paste(counts, collapse = ","), 
+        command <- paste(".Table <- matrix(c(", paste(counts, collapse = ","), 
             "), ", nrows, ", ", ncols, ", byrow=TRUE)", sep = "")
-        assign(".Table", justDoIt(command), envir = .GlobalEnv)
+        justDoIt(command)
         logger(paste(".Table <- ", command, sep = ""))
         command <- paste("c(", paste(paste("'", row.names, "'", 
             sep = ""), collapse = ", "), ")", sep = "")
@@ -128,14 +128,14 @@ function ()
             doItAndPrint("totPercents(.Table) # Percentage of Total")
         if (chisq == 1) {
             if (sims == 0) {
-                command <- "chisq.test(.Table, correct=FALSE)"
+                command <- ".Test <- chisq.test(.Table, correct=FALSE)"
             }
             else {
-                command <- paste("chisq.test(.Table, correct=FALSE, simulate.p.value=TRUE, B=", 
+                command <- paste(".Test <- chisq.test(.Table, correct=FALSE, simulate.p.value=TRUE, B=", 
                   B, ")", sep = "")
             }
             logger(paste(".Test <- ", command, sep = ""))
-            assign(".Test", justDoIt(command), envir = .GlobalEnv)
+            justDoIt(command)
             doItAndPrint(".Test")
             if (expected == 1) 
                 doItAndPrint(".Test$expected # Expected Counts")
@@ -234,10 +234,10 @@ function ()
             ""
         else paste(", subset=", subset, sep = "")
         closeDialog()
-        command <- paste("xtabs(~", row, "+", column, ", data=", 
+        command <- paste(".Table <- xtabs(~", row, "+", column, ", data=", 
             ActiveDataSet(), subset, ")", sep = "")
         logger(paste(".Table <- ", command, sep = ""))
-        assign(".Table", justDoIt(command), envir = .GlobalEnv)
+        justDoIt(command)
         if (margins == 1) {
             doItAndPrint("addmargins(.Table) # Table with Marginal Distributions")
         }
@@ -252,14 +252,14 @@ function ()
             doItAndPrint("totPercents(.Table) # Percentage of Total")
         if (chisq == 1) {
             if (sims == 0) {
-                command <- "chisq.test(.Table, correct=FALSE)"
+                command <- ".Test <- chisq.test(.Table, correct=FALSE)"
             }
             else {
-                command <- paste("chisq.test(.Table, correct=FALSE, simulate.p.value=TRUE, B=", 
+                command <- paste(".Test <- chisq.test(.Table, correct=FALSE, simulate.p.value=TRUE, B=", 
                   B, ")", sep = "")
             }
             logger(paste(".Test <- ", command, sep = ""))
-            assign(".Test", justDoIt(command), envir = .GlobalEnv)
+            justDoIt(command)
             doItAndPrint(".Test")
             if (expected == 1) 
                 doItAndPrint(".Test$expected # Expected Counts")

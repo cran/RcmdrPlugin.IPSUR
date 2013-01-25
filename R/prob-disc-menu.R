@@ -31,17 +31,17 @@ function ()
             return()
         }
         fun <- tclvalue(functionVar)
-        command <- paste("qbinom(.0005, size=", trials, " , prob=", 
+        command <- paste("xmin <- qbinom(.0005, size=", trials, " , prob=", 
             prob, ")", sep = "")
-        logger(paste("xmin <- ", command, sep = ""))
-        assign("xmin", justDoIt(command), envir = .GlobalEnv)
-        command <- paste("qbinom(.9995, size=", trials, " , prob=", 
+        logger(paste(command, sep = ""))
+        justDoIt(command)
+        command <- paste("xmax <- qbinom(.9995, size=", trials, " , prob=", 
             prob, ")", sep = "")
-        logger(paste("xmax <- ", command, sep = ""))
-        assign("xmax", justDoIt(command), envir = .GlobalEnv)
-        command <- paste("xmin:xmax", sep = "")
-        logger(paste(".x <- ", command, sep = ""))
-        assign(".x", justDoIt(command), envir = .GlobalEnv)
+        logger(paste(command, sep = ""))
+        justDoIt(command)
+        command <- paste(".x <- xmin:xmax", sep = "")
+        logger(paste(command, sep = ""))
+        justDoIt(command)
         if (fun == "Probability") {
             doItAndPrint(paste("plot(.x, dbinom(.x, size=", trials, 
                 ", prob=", prob, "), xlab=\"Number of Successes\", ylab=\"Probability Mass\", main=\"Binomial Distribution: Trials = ", 
@@ -141,21 +141,21 @@ function ()
             errorCondition(recall = binomialMass.ipsur, message = gettextRcmdr("Probability of success not specified."))
             return()
         }
-        command <- paste("qbinom(.00005, size=", trials, " , prob=", 
+        command <- paste("xmin <- qbinom(.00005, size=", trials, " , prob=", 
             prob, ")", sep = "")
-        logger(paste("xmin <- ", command, sep = ""))
-        assign("xmin", justDoIt(command), envir = .GlobalEnv)
-        command <- paste("qbinom(.99995, size=", trials, " , prob=", 
+        logger(paste(command, sep = ""))
+        justDoIt(command)
+        command <- paste("xmax <- qbinom(.99995, size=", trials, " , prob=", 
             prob, ")", sep = "")
-        logger(paste("xmax <- ", command, sep = ""))
-        assign("xmax", justDoIt(command), envir = .GlobalEnv)
-        command <- paste("xmin:xmax", sep = "")
-        logger(paste(".x <- ", command, sep = ""))
-        assign(".x", justDoIt(command), envir = .GlobalEnv)
-        command <- paste("data.frame(Pr=dbinom(xmin:xmax, size=", 
+        logger(paste(command, sep = ""))
+        justDoIt(command)
+        command <- paste(".x <- xmin:xmax", sep = "")
+        logger(paste(command, sep = ""))
+        justDoIt(command)
+        command <- paste(".Table <- data.frame(Pr=dbinom(xmin:xmax, size=", 
             trials, ", prob=", prob, "))", sep = "")
-        logger(paste(".Table <- ", command, sep = ""))
-        assign(".Table", justDoIt(command), envir = .GlobalEnv)
+        logger(paste(command, sep = ""))
+        justDoIt(command)
         logger(paste("rownames(.Table) <- xmin:xmax", sep = ""))
         justDoIt(paste("rownames(.Table) <- xmin:xmax", sep = ""))
         doItAndPrint(".Table")
@@ -324,15 +324,15 @@ function ()
             return()
         }
         fun <- tclvalue(functionVar)
-        command <- paste("qgeom(.0005, prob=", prob, ")", sep = "")
-        logger(paste("xmin <- ", command, sep = ""))
-        assign("xmin", justDoIt(command), envir = .GlobalEnv)
-        command <- paste("qgeom(.9995, prob=", prob, ")", sep = "")
-        logger(paste("xmax <- ", command, sep = ""))
-        assign("xmax", justDoIt(command), envir = .GlobalEnv)
-        command <- paste("xmin:xmax", sep = "")
-        logger(paste(".x <- ", command, sep = ""))
-        assign(".x", justDoIt(command), envir = .GlobalEnv)
+        command <- paste("xmin <- qgeom(.0005, prob=", prob, ")", sep = "")
+        logger(paste(command, sep = ""))
+        justDoIt(command)
+        command <- paste("xmax <- qgeom(.9995, prob=", prob, ")", sep = "")
+        logger(paste(command, sep = ""))
+        justDoIt(command)
+        command <- paste(".x <- xmin:xmax", sep = "")
+        logger(paste(command, sep = ""))
+        justDoIt(command)
         if (fun == "Probability") {
             doItAndPrint(paste("plot(.x, dgeom(.x, prob=", prob, 
                 "), xlab=\"Number of Failures until Success\", ylab=\"Probability Mass\", main=\"Geometric Distribution: Prob of success = ", 
@@ -417,16 +417,16 @@ function ()
             errorCondition(recall = geomMass.ipsur, message = gettextRcmdr("Success probability was not specified."))
             return()
         }
-        command <- paste("qgeom(.00005, prob=", prob, ")", sep = "")
-        logger(paste("xmin <- ", command, sep = ""))
-        assign("xmin", justDoIt(command), envir = .GlobalEnv)
-        command <- paste("qgeom(.99995, prob=", prob, ")", sep = "")
-        logger(paste("xmax <- ", command, sep = ""))
-        assign("xmax", justDoIt(command), envir = .GlobalEnv)
-        command <- paste("data.frame(Pr=dgeom(xmin:xmax, prob=", 
+        command <- paste("xmin <- qgeom(.00005, prob=", prob, ")", sep = "")
+        logger(paste(command, sep = ""))
+        justDoIt(command)
+        command <- paste("xmax <- qgeom(.99995, prob=", prob, ")", sep = "")
+        logger(paste(command, sep = ""))
+        justDoIt(command)
+        command <- paste(".Table <- data.frame(Pr=dgeom(xmin:xmax, prob=", 
             prob, "))", sep = "")
-        logger(paste(".Table <- ", command, sep = ""))
-        assign(".Table", justDoIt(command), envir = .GlobalEnv)
+        logger(paste(command, sep = ""))
+        justDoIt(command)
         logger(paste("rownames(.Table) <- xmin:xmax", sep = ""))
         justDoIt(paste("rownames(.Table) <- xmin:xmax", sep = ""))
         doItAndPrint(".Table")
@@ -582,17 +582,17 @@ function ()
                 message = gettextRcmdr("The k parameter was not specified."))
             return()
         }
-        command <- paste("qhyper(.0005, m=", m, ", n=", n, ", k=", 
+        command <- paste("xmin <- qhyper(.0005, m=", m, ", n=", n, ", k=", 
             k, ")", sep = "")
-        logger(paste("xmin <- ", command, sep = ""))
-        assign("xmin", justDoIt(command), envir = .GlobalEnv)
-        command <- paste("qhyper(.9995, m=", m, ", n=", n, ", k=", 
+        logger(paste(command, sep = ""))
+        justDoIt(command)
+        command <- paste("xmax <- qhyper(.9995, m=", m, ", n=", n, ", k=", 
             k, ")", sep = "")
-        logger(paste("xmax <- ", command, sep = ""))
-        assign("xmax", justDoIt(command), envir = .GlobalEnv)
-        command <- paste("xmin:xmax", sep = "")
-        logger(paste(".x <- ", command, sep = ""))
-        assign(".x", justDoIt(command), envir = .GlobalEnv)
+        logger(paste(command, sep = ""))
+        justDoIt(command)
+        command <- paste(".x <- xmin:xmax", sep = "")
+        logger(paste(command, sep = ""))
+        justDoIt(command)
         if (fun == "Probability") {
             doItAndPrint(paste("plot(.x, dhyper(.x, m=", m, ", n=", 
                 n, ", k=", k, "), xlab=\"Number of White Balls in Sample\", ylab=\"Probability Mass\", main=\"Hypergeometric Distribution: m=", 
@@ -699,18 +699,18 @@ function ()
             errorCondition(recall = hyperMass.ipsur, message = gettextRcmdr("The k parameter was not specified."))
             return()
         }
-        command <- paste("qhyper(.00005, m=", m, ", n=", n, ", k=", 
+        command <- paste("xmin <- qhyper(.00005, m=", m, ", n=", n, ", k=", 
             k, ")", sep = "")
-        logger(paste("xmin <- ", command, sep = ""))
-        assign("xmin", justDoIt(command), envir = .GlobalEnv)
-        command <- paste("qhyper(.99995, m=", m, ", n=", n, ", k=", 
+        logger(paste(command, sep = ""))
+        justDoIt(command)
+        command <- paste("xmax <- qhyper(.99995, m=", m, ", n=", n, ", k=", 
             k, ")", sep = "")
-        logger(paste("xmax <- ", command, sep = ""))
-        assign("xmax", justDoIt(command), envir = .GlobalEnv)
-        command <- paste("data.frame(Pr=dhyper(xmin:xmax, m=", 
+        logger(paste(command, sep = ""))
+        justDoIt(command)
+        command <- paste(".Table <- data.frame(Pr=dhyper(xmin:xmax, m=", 
             m, ", n=", n, ", k=", k, "))", sep = "")
-        logger(paste(".Table <- ", command, sep = ""))
-        assign(".Table", justDoIt(command), envir = .GlobalEnv)
+        logger(paste(command, sep = ""))
+        justDoIt(command)
         logger(paste("rownames(.Table) <- xmin:xmax", sep = ""))
         justDoIt(paste("rownames(.Table) <- xmin:xmax", sep = ""))
         doItAndPrint(".Table")
@@ -908,17 +908,17 @@ function ()
             return()
         }
         fun <- tclvalue(functionVar)
-        command <- paste("qnbinom(.0005, size=", trials, ", prob=", 
+        command <- paste("xmin <- qnbinom(.0005, size=", trials, ", prob=", 
             prob, ")", sep = "")
-        logger(paste("xmin <- ", command, sep = ""))
-        assign("xmin", justDoIt(command), envir = .GlobalEnv)
-        command <- paste("qnbinom(.9995, size=", trials, ", prob=", 
+        logger(paste(command, sep = ""))
+        justDoIt(command)
+        command <- paste("xmax <- qnbinom(.9995, size=", trials, ", prob=", 
             prob, ")", sep = "")
-        logger(paste("xmax <- ", command, sep = ""))
-        assign("xmax", justDoIt(command), envir = .GlobalEnv)
-        command <- paste("xmin:xmax", sep = "")
-        logger(paste(".x <- ", command, sep = ""))
-        assign(".x", justDoIt(command), envir = .GlobalEnv)
+        logger(paste(command, sep = ""))
+        justDoIt(command)
+        command <- paste(".x <- xmin:xmax", sep = "")
+        logger(paste(command, sep = ""))
+        justDoIt(command)
         if (fun == "Probability") {
             doItAndPrint(paste("plot(.x, dnbinom(.x, size=", 
                 trials, ", prob=", prob, "), xlab=\"Number of Failures until Target Successes\", ylab=\"Probability Mass\", main=\"Negative Binomial Distribution: Target = ", 
@@ -1018,18 +1018,18 @@ function ()
             errorCondition(recall = negbinomialMass.ipsur, message = gettextRcmdr("Probability of success not specified."))
             return()
         }
-        command <- paste("qnbinom(.00005, size=", trials, ", prob=", 
+        command <- paste("xmin <- qnbinom(.00005, size=", trials, ", prob=", 
             prob, ")", sep = "")
-        logger(paste("xmin <- ", command, sep = ""))
-        assign("xmin", justDoIt(command), envir = .GlobalEnv)
-        command <- paste("qnbinom(.99995, size=", trials, ", prob=", 
+        logger(paste(command, sep = ""))
+        justDoIt(command)
+        command <- paste("xmax <- qnbinom(.99995, size=", trials, ", prob=", 
             prob, ")", sep = "")
-        logger(paste("xmax <- ", command, sep = ""))
-        assign("xmax", justDoIt(command), envir = .GlobalEnv)
-        command <- paste("data.frame(Pr=dnbinom(xmin:xmax, size=", 
+        logger(paste(command, sep = ""))
+        justDoIt(command)
+        command <- paste(".Table <- data.frame(Pr=dnbinom(xmin:xmax, size=", 
             trials, ", prob=", prob, "))", sep = "")
-        logger(paste(".Table <- ", command, sep = ""))
-        assign(".Table", justDoIt(command), envir = .GlobalEnv)
+        logger(paste(command, sep = ""))
+        justDoIt(command)
         logger(paste("rownames(.Table) <- xmin:xmax", sep = ""))
         justDoIt(paste("rownames(.Table) <- xmin:xmax", sep = ""))
         doItAndPrint(".Table")
@@ -1196,15 +1196,15 @@ function ()
             return()
         }
         fun <- tclvalue(functionVar)
-        command <- paste("qpois(.0005, lambda=", mean, ")", sep = "")
-        logger(paste("xmin <- ", command, sep = ""))
-        assign("xmin", justDoIt(command), envir = .GlobalEnv)
-        command <- paste("qpois(.9995, lambda=", mean, ")", sep = "")
-        logger(paste("xmax <- ", command, sep = ""))
-        assign("xmax", justDoIt(command), envir = .GlobalEnv)
-        command <- paste("xmin:xmax", sep = "")
-        logger(paste(".x <- ", command, sep = ""))
-        assign(".x", justDoIt(command), envir = .GlobalEnv)
+        command <- paste("xmin <- qpois(.0005, lambda=", mean, ")", sep = "")
+        logger(paste(command, sep = ""))
+        justDoIt(command)
+        command <- paste("xmax <- qpois(.9995, lambda=", mean, ")", sep = "")
+        logger(paste(command, sep = ""))
+        justDoIt(command)
+        command <- paste(".x <- xmin:xmax", sep = "")
+        logger(paste(command, sep = ""))
+        justDoIt(command)
         if (fun == "Probability") {
             doItAndPrint(paste("plot(.x, dpois(.x, lambda=", 
                 mean, "), xlab=\"x\", ylab=\"Probability Mass\", main=\"Poisson Distribution: lambda = ", 
@@ -1288,18 +1288,18 @@ function ()
             errorCondition(recall = PoissonMass.ipsur, message = gettextRcmdr("The mean parameter was not specified."))
             return()
         }
-        command <- paste("qpois(.00005, lambda=", mean, ")", 
+        command <- paste("xmin <- qpois(.00005, lambda=", mean, ")", 
             sep = "")
-        logger(paste("xmin <- ", command, sep = ""))
-        assign("xmin", justDoIt(command), envir = .GlobalEnv)
-        command <- paste("qpois(.99995, lambda=", mean, ")", 
+        logger(paste(command, sep = ""))
+        justDoIt(command)
+        command <- paste("xmax <- qpois(.99995, lambda=", mean, ")", 
             sep = "")
-        logger(paste("xmax <- ", command, sep = ""))
-        assign("xmax", justDoIt(command), envir = .GlobalEnv)
-        command <- paste("data.frame(Pr=dpois(xmin:xmax, lambda=", 
+        logger(paste(command, sep = ""))
+        justDoIt(command)
+        command <- paste(".Table <- data.frame(Pr=dpois(xmin:xmax, lambda=", 
             mean, "))", sep = "")
-        logger(paste(".Table <- ", command, sep = ""))
-        assign(".Table", justDoIt(command), envir = .GlobalEnv)
+        logger(paste(command, sep = ""))
+        justDoIt(command)
         logger(paste("rownames(.Table) <- xmin:xmax", sep = ""))
         justDoIt(paste("rownames(.Table) <- xmin:xmax", sep = ""))
         doItAndPrint(".Table")

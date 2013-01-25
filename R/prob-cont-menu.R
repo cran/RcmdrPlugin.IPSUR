@@ -43,17 +43,17 @@ function()
             "dbeta"
         else "pbeta"
         if (fun == "Density") {
-            command <- paste("qbeta(.00005, shape1=", shape1, 
+            command <- paste("xmin <- qbeta(.00005, shape1=", shape1, 
                 ", shape2=", shape2, ")", sep = "")
-            logger(paste("xmin <- ", command, sep = ""))
-            assign("xmin", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("qbeta(.99995, shape1=", shape1, 
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste("xmax <- qbeta(.99995, shape1=", shape1, 
                 ", shape2=", shape2, ")", sep = "")
-            logger(paste("xmax <- ", command, sep = ""))
-            assign("xmax", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("seq(xmin, xmax, length=100)", sep = "")
-            logger(paste(".x <- ", command, sep = ""))
-            assign(".x", justDoIt(command), envir = .GlobalEnv)
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste(".x <- seq(xmin, xmax, length=100)", sep = "")
+            logger(paste(command, sep = ""))
+            justDoIt(command)
             doItAndPrint(paste("plot(.x, dbeta(.x, shape1=", 
                 shape1, ", shape2=", shape2, ", ncp=", ncp, "), xlab=\"x\", ylab=\"", 
                 fun, "\", main=expression(paste(\"Beta Distribution: \", alpha, \" = ", 
@@ -62,17 +62,17 @@ function()
             doItAndPrint("abline(h=0, col=\"gray\")")
         }
         else if (fun == "Cumulative Probability") {
-            command <- paste("qbeta(.00005, shape1=", shape1, 
+            command <- paste("xmin <- qbeta(.00005, shape1=", shape1, 
                 ", shape2=", shape2, ")", sep = "")
-            logger(paste("xmin <- ", command, sep = ""))
-            assign("xmin", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("qbeta(.99995, shape1=", shape1, 
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste("xmax <- qbeta(.99995, shape1=", shape1, 
                 ", shape2=", shape2, ")", sep = "")
-            logger(paste("xmax <- ", command, sep = ""))
-            assign("xmax", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("seq(xmin, xmax, length=100)", sep = "")
-            logger(paste(".x <- ", command, sep = ""))
-            assign(".x", justDoIt(command), envir = .GlobalEnv)
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste(".x <- seq(xmin, xmax, length=100)", sep = "")
+            logger(paste(command, sep = ""))
+            justDoIt(command)
             doItAndPrint(paste("plot(.x, pbeta(.x, shape1=", 
                 shape1, ", shape2=", shape2, ", ncp=", ncp, "), xlab=\"x\", ylab=\"", 
                 fun, "\", main=expression(paste(\"Beta Distribution: \", alpha, \" = ", 
@@ -81,18 +81,18 @@ function()
             doItAndPrint("abline(h=0, col=\"gray\")")
         }
         else if (fun == "Quantile Function") {
-            command <- paste("qbeta(.00005, shape1=", shape1, 
+            command <- paste("xmin <- qbeta(.00005, shape1=", shape1, 
                 ", shape2=", shape2, ")", sep = "")
-            logger(paste("xmin <- ", command, sep = ""))
-            assign("xmin", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("qbeta(.99995, shape1=", shape1, 
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste("xmax <- qbeta(.99995, shape1=", shape1, 
                 ", shape2=", shape2, ")", sep = "")
-            logger(paste("xmax <- ", command, sep = ""))
-            assign("xmax", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("seq(.00005, .99995, length=100)", 
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste(".x <- seq(.00005, .99995, length=100)", 
                 sep = "")
-            logger(paste(".x <- ", command, sep = ""))
-            assign(".x", justDoIt(command), envir = .GlobalEnv)
+            logger(paste(command, sep = ""))
+            justDoIt(command)
             doItAndPrint(paste("plot(.x, qbeta(.x, shape1=", 
                 shape1, ", shape2=", shape2, ", ncp=", ncp, "), xlab=\"Cumulative Probability\", ylab=\"Quantile\", main=expression(paste(\"Beta QF: \", alpha, \" = ", 
                 shape1, ", \", beta, \" = ", shape2, ", \", delta, \" = ", 
@@ -384,17 +384,17 @@ function ()
             return()
         }
         if (fun == "Density") {
-            command <- paste("qcauchy(.00005, location=", location, 
+            command <- paste("xmin <- qcauchy(.00005, location=", location, 
                 ", scale=", scale1, ")", sep = "")
-            logger(paste("xmin <- ", command, sep = ""))
-            assign("xmin", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("qcauchy(.99995, location=", location, 
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste("xmax <- qcauchy(.99995, location=", location, 
                 ", scale=", scale1, ")", sep = "")
-            logger(paste("xmax <- ", command, sep = ""))
-            assign("xmax", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("seq(xmin, xmax, length=100)", sep = "")
-            logger(paste(".x <- ", command, sep = ""))
-            assign(".x", justDoIt(command), envir = .GlobalEnv)
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste(".x <- seq(xmin, xmax, length=100)", sep = "")
+            logger(paste(command, sep = ""))
+            justDoIt(command)
             doItAndPrint(paste("plot(.x, dcauchy(.x, location=", 
                 location, ", scale=", scale1, "), xlab=\"x\", ylab=\"", 
                 fun, "\", main=expression(paste(\"Cauchy Distribution: \", location, \" = ", 
@@ -403,17 +403,17 @@ function ()
             doItAndPrint("abline(h=0, col=\"gray\")")
         }
         else if (fun == "Cumulative Probability") {
-            command <- paste("qcauchy(.00005, location=", location, 
+            command <- paste("xmin <- qcauchy(.00005, location=", location, 
                 ", scale=", scale1, ")", sep = "")
-            logger(paste("xmin <- ", command, sep = ""))
-            assign("xmin", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("qcauchy(.99995, location=", location, 
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste("xmax <- qcauchy(.99995, location=", location, 
                 ", scale=", scale1, ")", sep = "")
-            logger(paste("xmax <- ", command, sep = ""))
-            assign("xmax", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("seq(xmin, xmax, length=100)", sep = "")
-            logger(paste(".x <- ", command, sep = ""))
-            assign(".x", justDoIt(command), envir = .GlobalEnv)
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste(".x <- seq(xmin, xmax, length=100)", sep = "")
+            logger(paste(command, sep = ""))
+            justDoIt(command)
             doItAndPrint(paste("plot(.x, pcauchy(.x, location=", 
                 location, ", scale=", scale1, "), xlab=\"x\", ylab=\"", 
                 fun, "\", main=expression(paste(\"Cauchy Distribution: \", location, \" = ", 
@@ -422,18 +422,18 @@ function ()
             doItAndPrint("abline(h=0, col=\"gray\")")
         }
         else if (fun == "Quantile Function") {
-            command <- paste("qcauchy(.00005, location=", location, 
+            command <- paste("xmin <- qcauchy(.00005, location=", location, 
                 ", scale=", scale1, ")", sep = "")
-            logger(paste("xmin <- ", command, sep = ""))
-            assign("xmin", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("qcauchy(.99995, location=", location, 
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste("xmax <- qcauchy(.99995, location=", location, 
                 ", scale=", scale1, ")", sep = "")
-            logger(paste("xmax <- ", command, sep = ""))
-            assign("xmax", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("seq(.00005, .99995, length=100)", 
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste(".x <- seq(.00005, .99995, length=100)", 
                 sep = "")
-            logger(paste(".x <- ", command, sep = ""))
-            assign(".x", justDoIt(command), envir = .GlobalEnv)
+            logger(paste(command, sep = ""))
+            justDoIt(command)
             doItAndPrint(paste("plot(.x, qcauchy(.x, location=", 
                 location, ", scale=", scale1, "), xlab=\"Cumulative Probability\", ylab=\"Quantile\", \n\t\t\t\tmain=expression(paste(\"Cauchy Distribution: \", location, \" = ", 
                 location, ", \", scale, \" = ", scale1, "\")), type=\"l\")", 
@@ -739,17 +739,17 @@ function ()
         }
         fun <- tclvalue(functionVar)
         if (fun == "Density") {
-            command <- paste("qchisq(.00005, df=", df, ", ncp=", 
+            command <- paste("xmin <- qchisq(.00005, df=", df, ", ncp=", 
                 ncp, ")", sep = "")
-            logger(paste("xmin <- ", command, sep = ""))
-            assign("xmin", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("qchisq(.99995, df=", df, ", ncp=", 
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste("xmax <- qchisq(.99995, df=", df, ", ncp=", 
                 ncp, ")", sep = "")
-            logger(paste("xmax <- ", command, sep = ""))
-            assign("xmax", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("seq(xmin, xmax, length=100)", sep = "")
-            logger(paste(".x <- ", command, sep = ""))
-            assign(".x", justDoIt(command), envir = .GlobalEnv)
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste(".x <- seq(xmin, xmax, length=100)", sep = "")
+            logger(paste(command, sep = ""))
+            justDoIt(command)
             doItAndPrint(paste("plot(.x, dchisq(.x, df=", df, 
                 ", ncp=", ncp, "), xlab=expression(chi^2), ylab=\"", 
                 fun, "\", main=\"Chi-Squared Distribution: df = ", 
@@ -757,17 +757,17 @@ function ()
             doItAndPrint("abline(h=0, col=\"gray\")")
         }
         else if (fun == "Cumulative Probability") {
-            command <- paste("qchisq(.00005, df=", df, ", ncp=", 
+            command <- paste("xmin <- qchisq(.00005, df=", df, ", ncp=", 
                 ncp, ")", sep = "")
-            logger(paste("xmin <- ", command, sep = ""))
-            assign("xmin", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("qchisq(.99995, df=", df, ", ncp=", 
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste("xmax <- qchisq(.99995, df=", df, ", ncp=", 
                 ncp, ")", sep = "")
-            logger(paste("xmax <- ", command, sep = ""))
-            assign("xmax", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("seq(xmin, xmax, length=100)", sep = "")
-            logger(paste(".x <- ", command, sep = ""))
-            assign(".x", justDoIt(command), envir = .GlobalEnv)
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste(".x <- seq(xmin, xmax, length=100)", sep = "")
+            logger(paste(command, sep = ""))
+            justDoIt(command)
             doItAndPrint(paste("plot(.x, pchisq(.x, df=", df, 
                 ", ncp=", ncp, "), xlab=expression(chi^2), ylab=\"", 
                 fun, "\", main=\"Chi-Squared Distribution: df = ", 
@@ -775,18 +775,18 @@ function ()
             doItAndPrint("abline(h=0, col=\"gray\")")
         }
         else if (fun == "Quantile Function") {
-            command <- paste("qchisq(.00005, df=", df, ", ncp=", 
+            command <- paste("xmin <- qchisq(.00005, df=", df, ", ncp=", 
                 ncp, ")", sep = "")
-            logger(paste("xmin <- ", command, sep = ""))
-            assign("xmin", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("qchisq(.99995, df=", df, ", ncp=", 
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste("xmax <- qchisq(.99995, df=", df, ", ncp=", 
                 ncp, ")", sep = "")
-            logger(paste("xmax <- ", command, sep = ""))
-            assign("xmax", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("seq(.00005, .99995, length=100)", 
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste(".x <- seq(.00005, .99995, length=100)", 
                 sep = "")
-            logger(paste(".x <- ", command, sep = ""))
-            assign(".x", justDoIt(command), envir = .GlobalEnv)
+            logger(paste(command, sep = ""))
+            justDoIt(command)
             doItAndPrint(paste("plot(.x, qchisq(.x, df=", df, 
                 ", ncp=", ncp, "), xlab=\"Cumulative Probability\", ylab=\"Quantile\", main=\"Chi-Squared Distribution: df = ", 
                 df, ", ncp=", ncp, "\", type=\"l\")", sep = ""))
@@ -842,52 +842,52 @@ function ()
             return()
         }
         if (fun == "Density") {
-            command <- paste("qexp(.00005, rate=", rate, ")", 
+            command <- paste("xmin <- qexp(.00005, rate=", rate, ")", 
                 sep = "")
-            logger(paste("xmin <- ", command, sep = ""))
-            assign("xmin", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("qexp(.99995, rate=", rate, ")", 
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste("xmax <- qexp(.99995, rate=", rate, ")", 
                 sep = "")
-            logger(paste("xmax <- ", command, sep = ""))
-            assign("xmax", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("seq(xmin, xmax, length=100)", sep = "")
-            logger(paste(".x <- ", command, sep = ""))
-            assign(".x", justDoIt(command), envir = .GlobalEnv)
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste(".x <- seq(xmin, xmax, length=100)", sep = "")
+            logger(paste(command, sep = ""))
+            justDoIt(command)
             doItAndPrint(paste("plot(.x, dexp(.x, rate=", rate, 
                 " ), xlab=\"x\", ylab=\"", fun, "\", main=expression(paste(\"Exponential Distribution: \", lambda, \" =", 
                 rate, "\")), type=\"l\")", sep = ""))
             doItAndPrint("abline(h=0, col=\"gray\")")
         }
         else if (fun == "Cumulative Probability") {
-            command <- paste("qexp(.00005, rate=", rate, ")", 
+            command <- paste("xmin <- qexp(.00005, rate=", rate, ")", 
                 sep = "")
-            logger(paste("xmin <- ", command, sep = ""))
-            assign("xmin", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("qexp(.99995, rate=", rate, ")", 
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste("xmax <- qexp(.99995, rate=", rate, ")", 
                 sep = "")
-            logger(paste("xmax <- ", command, sep = ""))
-            assign("xmax", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("seq(xmin, xmax, length=100)", sep = "")
-            logger(paste(".x <- ", command, sep = ""))
-            assign(".x", justDoIt(command), envir = .GlobalEnv)
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste(".x <- seq(xmin, xmax, length=100)", sep = "")
+            logger(paste(command, sep = ""))
+            justDoIt(command)
             doItAndPrint(paste("plot(.x, pexp(.x, rate=", rate, 
                 " ), xlab=\"x\", ylab=\"", fun, "\", main=expression(paste(\"Exponential Distribution: \", lambda, \" =", 
                 rate, "\")), type=\"l\")", sep = ""))
             doItAndPrint("abline(h=0, col=\"gray\")")
         }
         else if (fun == "Quantile Function") {
-            command <- paste("qexp(.00005, rate=", rate, ")", 
+            command <- paste("xmin <- qexp(.00005, rate=", rate, ")", 
                 sep = "")
-            logger(paste("xmin <- ", command, sep = ""))
-            assign("xmin", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("qexp(.99995, rate=", rate, ")", 
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste("xmax <- qexp(.99995, rate=", rate, ")", 
                 sep = "")
-            logger(paste("xmax <- ", command, sep = ""))
-            assign("xmax", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("seq(.00005, .99995, length=100)", 
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste(".x <- seq(.00005, .99995, length=100)", 
                 sep = "")
-            logger(paste(".x <- ", command, sep = ""))
-            assign(".x", justDoIt(command), envir = .GlobalEnv)
+            logger(paste(command, sep = ""))
+            justDoIt(command)
             doItAndPrint(paste("plot(.x, qexp(.x, rate=", rate, 
                 " ), xlab=\"Cumulative Probability\", ylab=\"Quantile\", main=expression(paste(\"Exponential Distribution: \", lambda, \" =", 
                 rate, "\")), type=\"l\")", sep = ""))
@@ -1047,17 +1047,17 @@ function ()
         }
         fun <- tclvalue(functionVar)
         if (fun == "Density") {
-            command <- paste("qf(.00005, df1=", df1, ", df2=", 
+            command <- paste("xmin <- qf(.00005, df1=", df1, ", df2=", 
                 df2, ", ncp=", ncp, ")", sep = "")
-            logger(paste("xmin <- ", command, sep = ""))
-            assign("xmin", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("qf(.99995, df1=", df1, ", df2=", 
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste("xmax <- qf(.99995, df1=", df1, ", df2=", 
                 df2, ", ncp=", ncp, ")", sep = "")
-            logger(paste("xmax <- ", command, sep = ""))
-            assign("xmax", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("seq(xmin, xmax, length=100)", sep = "")
-            logger(paste(".x <- ", command, sep = ""))
-            assign(".x", justDoIt(command), envir = .GlobalEnv)
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste(".x <- seq(xmin, xmax, length=100)", sep = "")
+            logger(paste(command, sep = ""))
+            justDoIt(command)
             doItAndPrint(paste("plot(.x, df(.x, df1=", df1, ", df2=", 
                 df2, ", ncp=", ncp, "), xlab=\"f\", ylab=\"", 
                 fun, "\", main=\"F Distribution: Numerator df = ", 
@@ -1066,17 +1066,17 @@ function ()
             doItAndPrint("abline(h=0, col=\"gray\")")
         }
         else if (fun == "Cumulative Probability") {
-            command <- paste("qf(.00005, df1=", df1, ", df2=", 
+            command <- paste("xmin <- qf(.00005, df1=", df1, ", df2=", 
                 df2, ", ncp=", ncp, ")", sep = "")
-            logger(paste("xmin <- ", command, sep = ""))
-            assign("xmin", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("qf(.99995, df1=", df1, ", df2=", 
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste("xmax <- qf(.99995, df1=", df1, ", df2=", 
                 df2, ", ncp=", ncp, ")", sep = "")
-            logger(paste("xmax <- ", command, sep = ""))
-            assign("xmax", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("seq(xmin, xmax, length=100)", sep = "")
-            logger(paste(".x <- ", command, sep = ""))
-            assign(".x", justDoIt(command), envir = .GlobalEnv)
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste(".x <- seq(xmin, xmax, length=100)", sep = "")
+            logger(paste(command, sep = ""))
+            justDoIt(command)
             doItAndPrint(paste("plot(.x, pf(.x, df1=", df1, ", df2=", 
                 df2, ", ncp=", ncp, "), xlab=\"f\", ylab=\"", 
                 fun, "\", main=\"F Distribution: Numerator df = ", 
@@ -1085,18 +1085,18 @@ function ()
             doItAndPrint("abline(h=0, col=\"gray\")")
         }
         else if (fun == "Quantile Function") {
-            command <- paste("qf(.00005, df1=", df1, ", df2=", 
+            command <- paste("xmin <- qf(.00005, df1=", df1, ", df2=", 
                 df2, ", ncp=", ncp, ")", sep = "")
-            logger(paste("xmin <- ", command, sep = ""))
-            assign("xmin", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("qf(.99995, df1=", df1, ", df2=", 
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste("xmax <- qf(.99995, df1=", df1, ", df2=", 
                 df2, ", ncp=", ncp, ")", sep = "")
-            logger(paste("xmax <- ", command, sep = ""))
-            assign("xmax", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("seq(.00005, .99995, length=100)", 
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste(".x <- seq(.00005, .99995, length=100)", 
                 sep = "")
-            logger(paste(".x <- ", command, sep = ""))
-            assign(".x", justDoIt(command), envir = .GlobalEnv)
+            logger(paste(command, sep = ""))
+            justDoIt(command)
             doItAndPrint(paste("plot(.x, qf(.x, df1=", df1, ", df2=", 
                 df2, ", ncp=", ncp, "), xlab=\"Cumulative Probability\", ylab=\"Quantile\", main=\"F Distribution: Numerator df = ", 
                 df1, ", Denominator df = ", df2, "ncp = ", ncp, 
@@ -1294,17 +1294,17 @@ function ()
             return()
         }
         if (fun == "Density") {
-            command <- paste("qgamma(.00005, shape=", shape, 
+            command <- paste("xmin <- qgamma(.00005, shape=", shape, 
                 ", rate=", scale1, ")", sep = "")
-            logger(paste("xmin <- ", command, sep = ""))
-            assign("xmin", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("qgamma(.99995, shape=", shape, 
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste("xmax <- qgamma(.99995, shape=", shape, 
                 ", rate=", scale1, ")", sep = "")
-            logger(paste("xmax <- ", command, sep = ""))
-            assign("xmax", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("seq(xmin, xmax, length=100)", sep = "")
-            logger(paste(".x <- ", command, sep = ""))
-            assign(".x", justDoIt(command), envir = .GlobalEnv)
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste(".x <- seq(xmin, xmax, length=100)", sep = "")
+            logger(paste(command, sep = ""))
+            justDoIt(command)
             doItAndPrint(paste("plot(.x, dgamma(.x, shape=", 
                 shape, ", rate=", scale1, "), xlab=\"x\", ylab=\"", 
                 fun, "\", main=expression(paste(\"Gamma Distribution: \", alpha, \" = ", 
@@ -1313,17 +1313,17 @@ function ()
             doItAndPrint("abline(h=0, col=\"gray\")")
         }
         else if (fun == "Cumulative Probability") {
-            command <- paste("qgamma(.00005, shape=", shape, 
+            command <- paste("xmin <- qgamma(.00005, shape=", shape, 
                 ", rate=", scale1, ")", sep = "")
-            logger(paste("xmin <- ", command, sep = ""))
-            assign("xmin", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("qgamma(.99995, shape=", shape, 
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste("xmax <- qgamma(.99995, shape=", shape, 
                 ", rate=", scale1, ")", sep = "")
-            logger(paste("xmax <- ", command, sep = ""))
-            assign("xmax", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("seq(xmin, xmax, length=100)", sep = "")
-            logger(paste(".x <- ", command, sep = ""))
-            assign(".x", justDoIt(command), envir = .GlobalEnv)
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste(".x <- seq(xmin, xmax, length=100)", sep = "")
+            logger(paste(command, sep = ""))
+            justDoIt(command)
             doItAndPrint(paste("plot(.x, pgamma(.x, shape=", 
                 shape, ", rate=", scale1, "), xlab=\"x\", ylab=\"", 
                 fun, "\", main=expression(paste(\"Gamma Distribution: \", alpha, \" = ", 
@@ -1332,18 +1332,18 @@ function ()
             doItAndPrint("abline(h=0, col=\"gray\")")
         }
         else if (fun == "Quantile Function") {
-            command <- paste("qgamma(.00005, shape=", shape, 
+            command <- paste("xmin <- qgamma(.00005, shape=", shape, 
                 ", rate=", scale1, ")", sep = "")
-            logger(paste("xmin <- ", command, sep = ""))
-            assign("xmin", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("qgamma(.99995, shape=", shape, 
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste("xmax <- qgamma(.99995, shape=", shape, 
                 ", rate=", scale1, ")", sep = "")
-            logger(paste("xmax <- ", command, sep = ""))
-            assign("xmax", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("seq(.00005, .99995, length=100)", 
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste(".x <- seq(.00005, .99995, length=100)", 
                 sep = "")
-            logger(paste(".x <- ", command, sep = ""))
-            assign(".x", justDoIt(command), envir = .GlobalEnv)
+            logger(paste(command, sep = ""))
+            justDoIt(command)
             doItAndPrint(paste("plot(.x, qgamma(.x, shape=", 
                 shape, ", rate=", scale1, "), xlab=\"Cumulative Probability\", ylab=\"Quantile\", main=expression(paste(\"Gamma Distribution: \", alpha, \" = ", 
                 shape, ", \", lambda, \" = ", scale1, "\")), type=\"l\")", 
@@ -1529,17 +1529,17 @@ function ()
             return()
         }
         if (fun == "Density") {
-            command <- paste("qlogis(.00005, location=", location, 
+            command <- paste("xmin <- qlogis(.00005, location=", location, 
                 ", scale=", scale1, ")", sep = "")
-            logger(paste("xmin <- ", command, sep = ""))
-            assign("xmin", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("qlogis(.99995, location=", location, 
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste("xmax <- qlogis(.99995, location=", location, 
                 ", scale=", scale1, ")", sep = "")
-            logger(paste("xmax <- ", command, sep = ""))
-            assign("xmax", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("seq(xmin, xmax, length=100)", sep = "")
-            logger(paste(".x <- ", command, sep = ""))
-            assign(".x", justDoIt(command), envir = .GlobalEnv)
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste(".x <- seq(xmin, xmax, length=100)", sep = "")
+            logger(paste(command, sep = ""))
+            justDoIt(command)
             doItAndPrint(paste("plot(.x, dlogis(.x, location=", 
                 location, ", scale=", scale1, "), xlab=\"x\", ylab=\"", 
                 fun, "\", main=expression(paste(\"Logistic Distribution: \", mu, \" = ", 
@@ -1548,17 +1548,17 @@ function ()
             doItAndPrint("abline(h=0, col=\"gray\")")
         }
         else if (fun == "Cumulative Probability") {
-            command <- paste("qlogis(.00005, location=", location, 
+            command <- paste("xmin <- qlogis(.00005, location=", location, 
                 ", scale=", scale1, ")", sep = "")
-            logger(paste("xmin <- ", command, sep = ""))
-            assign("xmin", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("qlogis(.99995, location=", location, 
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste("xmax <- qlogis(.99995, location=", location, 
                 ", scale=", scale1, ")", sep = "")
-            logger(paste("xmax <- ", command, sep = ""))
-            assign("xmax", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("seq(xmin, xmax, length=100)", sep = "")
-            logger(paste(".x <- ", command, sep = ""))
-            assign(".x", justDoIt(command), envir = .GlobalEnv)
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste(".x <- seq(xmin, xmax, length=100)", sep = "")
+            logger(paste(command, sep = ""))
+            justDoIt(command)
             doItAndPrint(paste("plot(.x, plogis(.x, location=", 
                 location, ", scale=", scale1, "), xlab=\"x\", ylab=\"", 
                 fun, "\", main=expression(paste(\"Logistic Distribution: \", mu, \" = ", 
@@ -1567,18 +1567,18 @@ function ()
             doItAndPrint("abline(h=0, col=\"gray\")")
         }
         else if (fun == "Quantile Function") {
-            command <- paste("qlogis(.00005, location=", location, 
+            command <- paste("xmin <- qlogis(.00005, location=", location, 
                 ", scale=", scale1, ")", sep = "")
-            logger(paste("xmin <- ", command, sep = ""))
-            assign("xmin", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("qlogis(.99995, location=", location, 
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste("xmax <- qlogis(.99995, location=", location, 
                 ", scale=", scale1, ")", sep = "")
-            logger(paste("xmax <- ", command, sep = ""))
-            assign("xmax", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("seq(.00005, .99995, length=100)", 
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste(".x <- seq(.00005, .99995, length=100)", 
                 sep = "")
-            logger(paste(".x <- ", command, sep = ""))
-            assign(".x", justDoIt(command), envir = .GlobalEnv)
+            logger(paste(command, sep = ""))
+            justDoIt(command)
             doItAndPrint(paste("plot(.x, qlogis(.x, location=", 
                 location, ", scale=", scale1, "), xlab=\"Cumulative Probability\", ylab=\"Quantile\", main=expression(paste(\"Logistic Distribution: \", mu, \" = ", 
                 location, ", \", beta, \" = ", scale1, "\")), type=\"l\")", 
@@ -1767,17 +1767,17 @@ function ()
             return()
         }
         if (fun == "Density") {
-            command <- paste("qlnorm(.00005, meanlog=", mulog, 
+            command <- paste("xmin <- qlnorm(.00005, meanlog=", mulog, 
                 ", sdlog=", sigmalog, ")", sep = "")
-            logger(paste("xmin <- ", command, sep = ""))
-            assign("xmin", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("qlnorm(.99995, meanlog=", mulog, 
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste("xmax <- qlnorm(.99995, meanlog=", mulog, 
                 ", sdlog=", sigmalog, ")", sep = "")
-            logger(paste("xmax <- ", command, sep = ""))
-            assign("xmax", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("seq(xmin, xmax, length=100)", sep = "")
-            logger(paste(".x <- ", command, sep = ""))
-            assign(".x", justDoIt(command), envir = .GlobalEnv)
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste(".x <- seq(xmin, xmax, length=100)", sep = "")
+            logger(paste(command, sep = ""))
+            justDoIt(command)
             doItAndPrint(paste("plot(.x, dlnorm(.x, meanlog=", 
                 mulog, ", sdlog=", sigmalog, "), xlab=\"x\", ylab=\"", 
                 fun, "\", main=expression(paste(\"Log Normal Distribution: \", mulog, \" = ", 
@@ -1786,17 +1786,17 @@ function ()
             doItAndPrint("abline(h=0, col=\"gray\")")
         }
         else if (fun == "Cumulative Probability") {
-            command <- paste("qlnorm(.00005, meanlog=", mulog, 
+            command <- paste("xmin <- qlnorm(.00005, meanlog=", mulog, 
                 ", sdlog=", sigmalog, ")", sep = "")
-            logger(paste("xmin <- ", command, sep = ""))
-            assign("xmin", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("qlnorm(.99995, meanlog=", mulog, 
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste("xmax <- qlnorm(.99995, meanlog=", mulog, 
                 ", sdlog=", sigmalog, ")", sep = "")
-            logger(paste("xmax <- ", command, sep = ""))
-            assign("xmax", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("seq(xmin, xmax, length=100)", sep = "")
-            logger(paste(".x <- ", command, sep = ""))
-            assign(".x", justDoIt(command), envir = .GlobalEnv)
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste(".x <- seq(xmin, xmax, length=100)", sep = "")
+            logger(paste(command, sep = ""))
+            justDoIt(command)
             doItAndPrint(paste("plot(.x, plnorm(.x, meanlog=", 
                 mulog, ", sdlog=", sigmalog, "), xlab=\"x\", ylab=\"", 
                 fun, "\", main=expression(paste(\"Log Normal Distribution: \", mulog, \" = ", 
@@ -1805,18 +1805,18 @@ function ()
             doItAndPrint("abline(h=0, col=\"gray\")")
         }
         else if (fun == "Quantile Function") {
-            command <- paste("qlnorm(.00005, meanlog=", mulog, 
+            command <- paste("xmin <- qlnorm(.00005, meanlog=", mulog, 
                 ", sdlog=", sigmalog, ")", sep = "")
-            logger(paste("xmin <- ", command, sep = ""))
-            assign("xmin", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("qlnorm(.99995, meanlog=", mulog, 
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste("xmax <- qlnorm(.99995, meanlog=", mulog, 
                 ", sdlog=", sigmalog, ")", sep = "")
-            logger(paste("xmax <- ", command, sep = ""))
-            assign("xmax", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("seq(.00005, .99995, length=100)", 
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste(".x <- seq(.00005, .99995, length=100)", 
                 sep = "")
-            logger(paste(".x <- ", command, sep = ""))
-            assign(".x", justDoIt(command), envir = .GlobalEnv)
+            logger(paste(command, sep = ""))
+            justDoIt(command)
             doItAndPrint(paste("plot(.x, qlnorm(.x, meanlog=", 
                 mulog, ", sdlog=", sigmalog, "), xlab=\"Cumulative Probability\", ylab=\"Quantile\", main=expression(paste(\"Log Normal Distribution: \", mulog, \" = ", 
                 mulog, ", \", sigmalog, \" = ", sigmalog, "\")), type=\"l\")", 
@@ -2005,17 +2005,17 @@ function ()
             return()
         }
         if (fun == "Density") {
-            command <- paste("qnorm(.00005, mean=", mu, ", sd=", 
+            command <- paste("xmin <- qnorm(.00005, mean=", mu, ", sd=", 
                 sigma, ")", sep = "")
-            logger(paste("xmin <- ", command, sep = ""))
-            assign("xmin", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("qnorm(.99995, mean=", mu, ", sd=", 
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste("xmax <- qnorm(.99995, mean=", mu, ", sd=", 
                 sigma, ")", sep = "")
-            logger(paste("xmax <- ", command, sep = ""))
-            assign("xmax", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("seq(xmin, xmax, length=100)", sep = "")
-            logger(paste(".x <- ", command, sep = ""))
-            assign(".x", justDoIt(command), envir = .GlobalEnv)
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste(".x <- seq(xmin, xmax, length=100)", sep = "")
+            logger(paste(command, sep = ""))
+            justDoIt(command)
             doItAndPrint(paste("plot(.x, dnorm(.x, mean=", mu, 
                 ", sd=", sigma, "), xlab=\"x\", ylab=\"", fun, 
                 "\", main=expression(paste(\"Normal Distribution: \", mu, \" = ", 
@@ -2024,17 +2024,17 @@ function ()
             doItAndPrint("abline(h=0, col=\"gray\")")
         }
         else if (fun == "Cumulative Probability") {
-            command <- paste("qnorm(.00005, mean=", mu, ", sd=", 
+            command <- paste("xmin <- qnorm(.00005, mean=", mu, ", sd=", 
                 sigma, ")", sep = "")
-            logger(paste("xmin <- ", command, sep = ""))
-            assign("xmin", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("qnorm(.99995, mean=", mu, ", sd=", 
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste("xmax <- qnorm(.99995, mean=", mu, ", sd=", 
                 sigma, ")", sep = "")
-            logger(paste("xmax <- ", command, sep = ""))
-            assign("xmax", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("seq(xmin, xmax, length=100)", sep = "")
-            logger(paste(".x <- ", command, sep = ""))
-            assign(".x", justDoIt(command), envir = .GlobalEnv)
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste(".x <- seq(xmin, xmax, length=100)", sep = "")
+            logger(paste(command, sep = ""))
+            justDoIt(command)
             doItAndPrint(paste("plot(.x, pnorm(.x, mean=", mu, 
                 ", sd=", sigma, "), xlab=\"x\", ylab=\"", fun, 
                 "\", main=expression(paste(\"Normal Distribution: \", mu, \" = ", 
@@ -2043,18 +2043,18 @@ function ()
             doItAndPrint("abline(h=0, col=\"gray\")")
         }
         else if (fun == "Quantile Function") {
-            command <- paste("qnorm(.00005, mean=", mu, ", sd=", 
+            command <- paste("xmin <- qnorm(.00005, mean=", mu, ", sd=", 
                 sigma, ")", sep = "")
-            logger(paste("xmin <- ", command, sep = ""))
-            assign("xmin", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("qnorm(.99995, mean=", mu, ", sd=", 
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste("xmax <- qnorm(.99995, mean=", mu, ", sd=", 
                 sigma, ")", sep = "")
-            logger(paste("xmax <- ", command, sep = ""))
-            assign("xmax", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("seq(.00005, .99995, length=100)", 
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste(".x <- seq(.00005, .99995, length=100)", 
                 sep = "")
-            logger(paste(".x <- ", command, sep = ""))
-            assign(".x", justDoIt(command), envir = .GlobalEnv)
+            logger(paste(command, sep = ""))
+            justDoIt(command)
             doItAndPrint(paste("plot(.x, qnorm(.x, mean=", mu, 
                 ", sd=", sigma, "), xlab=\"Cumulative Probability\", ylab=\"Quantile\", main=expression(paste(\"Normal Distribution: \", mu, \" = ", 
                 mu, ", \", sigma, \" = ", sigma, "\")), type=\"l\")", 
@@ -2240,52 +2240,52 @@ function ()
             return()
         }
         if (fun == "Density") {
-            command <- paste("qt(.00005, df=", df, ", ncp=", 
+            command <- paste("xmin <- qt(.00005, df=", df, ", ncp=", 
                 ncp, ")", sep = "")
-            logger(paste("xmin <- ", command, sep = ""))
-            assign("xmin", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("qt(.99995, df=", df, ", ncp=", 
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste("xmax <- qt(.99995, df=", df, ", ncp=", 
                 ncp, ")", sep = "")
-            logger(paste("xmax <- ", command, sep = ""))
-            assign("xmax", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("seq(xmin, xmax, length=100)", sep = "")
-            logger(paste(".x <- ", command, sep = ""))
-            assign(".x", justDoIt(command), envir = .GlobalEnv)
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste(".x <- seq(xmin, xmax, length=100)", sep = "")
+            logger(paste(command, sep = ""))
+            justDoIt(command)
             doItAndPrint(paste("plot(.x, dt(.x, df=", df, ", ncp=", 
                 ncp, "), xlab=\"t\", ylab=\"", fun, "\", main=\"t Distribution: df = ", 
                 df, ", ncp=", ncp, "\", type=\"l\")", sep = ""))
             doItAndPrint("abline(h=0, col=\"gray\")")
         }
         else if (fun == "Cumulative Probability") {
-            command <- paste("qt(.00005, df=", df, ", ncp=", 
+            command <- paste("xmin <- qt(.00005, df=", df, ", ncp=", 
                 ncp, ")", sep = "")
-            logger(paste("xmin <- ", command, sep = ""))
-            assign("xmin", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("qt(.99995, df=", df, ", ncp=", 
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste("xmax <- qt(.99995, df=", df, ", ncp=", 
                 ncp, ")", sep = "")
-            logger(paste("xmax <- ", command, sep = ""))
-            assign("xmax", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("seq(xmin, xmax, length=100)", sep = "")
-            logger(paste(".x <- ", command, sep = ""))
-            assign(".x", justDoIt(command), envir = .GlobalEnv)
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste(".x <- seq(xmin, xmax, length=100)", sep = "")
+            logger(paste(command, sep = ""))
+            justDoIt(command)
             doItAndPrint(paste("plot(.x, pt(.x, df=", df, ", ncp=", 
                 ncp, "), xlab=\"t\", ylab=\"", fun, "\", main=\"t Distribution: df = ", 
                 df, ", ncp=", ncp, "\", type=\"l\")", sep = ""))
             doItAndPrint("abline(h=0, col=\"gray\")")
         }
         else if (fun == "Quantile Function") {
-            command <- paste("qt(.00005, df=", df, ", ncp=", 
+            command <- paste("xmin <- qt(.00005, df=", df, ", ncp=", 
                 ncp, ")", sep = "")
-            logger(paste("xmin <- ", command, sep = ""))
-            assign("xmin", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("qt(.99995, df=", df, ", ncp=", 
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste("xmax <- qt(.99995, df=", df, ", ncp=", 
                 ncp, ")", sep = "")
-            logger(paste("xmax <- ", command, sep = ""))
-            assign("xmax", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("seq(.00005, .99995, length=100)", 
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste(".x <- seq(.00005, .99995, length=100)", 
                 sep = "")
-            logger(paste(".x <- ", command, sep = ""))
-            assign(".x", justDoIt(command), envir = .GlobalEnv)
+            logger(paste(command, sep = ""))
+            justDoIt(command)
             doItAndPrint(paste("plot(.x, qt(.x, df=", df, ", ncp=", 
                 ncp, "), xlab=\"Cumulative Probability\", ylab=\"Quantile\", main=\"t Distribution: df = ", 
                 df, ", ncp=", ncp, "\", type=\"l\")", sep = ""))
@@ -2468,17 +2468,17 @@ function ()
             return()
         }
         if (fun == "Density") {
-            command <- paste("qunif(.00005, min=", min1, ", max=", 
+            command <- paste("xmin <- qunif(.00005, min=", min1, ", max=", 
                 max1, ")", sep = "")
-            logger(paste("xmin <- ", command, sep = ""))
-            assign("xmin", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("qunif(.99995, min=", min1, ", max=", 
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste("xmax <- qunif(.99995, min=", min1, ", max=", 
                 max1, ")", sep = "")
-            logger(paste("xmax <- ", command, sep = ""))
-            assign("xmax", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("seq(xmin, xmax, length=100)", sep = "")
-            logger(paste(".x <- ", command, sep = ""))
-            assign(".x", justDoIt(command), envir = .GlobalEnv)
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste(".x <- seq(xmin, xmax, length=100)", sep = "")
+            logger(paste(command, sep = ""))
+            justDoIt(command)
             doItAndPrint(paste("plot(.x, dunif(.x, min=", min1, 
                 ", max=", max1, "), xlab=\"x\", ylab=\"", fun, 
                 "\", main=expression(paste(\"Uniform Distribution: \", min, \" = ", 
@@ -2487,17 +2487,17 @@ function ()
             doItAndPrint("abline(h=0, col=\"gray\")")
         }
         else if (fun == "Cumulative Probability") {
-            command <- paste("qunif(.00005, min=", min1, ", max=", 
+            command <- paste("xmin <- qunif(.00005, min=", min1, ", max=", 
                 max1, ")", sep = "")
-            logger(paste("xmin <- ", command, sep = ""))
-            assign("xmin", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("qunif(.99995, min=", min1, ", max=", 
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste("xmax <- qunif(.99995, min=", min1, ", max=", 
                 max1, ")", sep = "")
-            logger(paste("xmax <- ", command, sep = ""))
-            assign("xmax", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("seq(xmin, xmax, length=100)", sep = "")
-            logger(paste(".x <- ", command, sep = ""))
-            assign(".x", justDoIt(command), envir = .GlobalEnv)
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste(".x <- seq(xmin, xmax, length=100)", sep = "")
+            logger(paste(command, sep = ""))
+            justDoIt(command)
             doItAndPrint(paste("plot(.x, punif(.x, min=", min1, 
                 ", max=", max1, "), xlab=\"x\", ylab=\"", fun, 
                 "\", main=expression(paste(\"Uniform Distribution: \", min, \" = ", 
@@ -2506,18 +2506,18 @@ function ()
             doItAndPrint("abline(h=0, col=\"gray\")")
         }
         else if (fun == "Quantile Function") {
-            command <- paste("qunif(.00005, min=", min1, ", max=", 
+            command <- paste("xmin <- qunif(.00005, min=", min1, ", max=", 
                 max1, ")", sep = "")
-            logger(paste("xmin <- ", command, sep = ""))
-            assign("xmin", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("qunif(.99995, min=", min1, ", max=", 
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste("xmax <- qunif(.99995, min=", min1, ", max=", 
                 max1, ")", sep = "")
-            logger(paste("xmax <- ", command, sep = ""))
-            assign("xmax", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("seq(.00005, .99995, length=100)", 
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste(".x <- seq(.00005, .99995, length=100)", 
                 sep = "")
-            logger(paste(".x <- ", command, sep = ""))
-            assign(".x", justDoIt(command), envir = .GlobalEnv)
+            logger(paste(command, sep = ""))
+            justDoIt(command)
             doItAndPrint(paste("plot(.x, qunif(.x, min=", min1, 
                 ", max=", max1, "), xlab=\"Cumulative Probability\", ylab=\"Quantile\", main=expression(paste(\"Uniform Distribution: \", min, \" = ", 
                 min1, ", \", max, \" = ", max1, "\")), type=\"l\")", 
@@ -2703,17 +2703,17 @@ function ()
             return()
         }
         if (fun == "Density") {
-            command <- paste("qweibull(.00005, shape=", shape, 
+            command <- paste("xmin <- qweibull(.00005, shape=", shape, 
                 ", scale=", scale1, ")", sep = "")
-            logger(paste("xmin <- ", command, sep = ""))
-            assign("xmin", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("qweibull(.99995, shape=", shape, 
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste("xmax <- qweibull(.99995, shape=", shape, 
                 ", scale=", scale1, ")", sep = "")
-            logger(paste("xmax <- ", command, sep = ""))
-            assign("xmax", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("seq(xmin, xmax, length=100)", sep = "")
-            logger(paste(".x <- ", command, sep = ""))
-            assign(".x", justDoIt(command), envir = .GlobalEnv)
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste(".x <- seq(xmin, xmax, length=100)", sep = "")
+            logger(paste(command, sep = ""))
+            justDoIt(command)
             doItAndPrint(paste("plot(.x, dweibull(.x, shape=", 
                 shape, ", scale=", scale1, "), xlab=\"x\", ylab=\"", 
                 fun, "\", main=expression(paste(\"Weibull Distribution: \", gamma, \" = ", 
@@ -2722,17 +2722,17 @@ function ()
             doItAndPrint("abline(h=0, col=\"gray\")")
         }
         else if (fun == "Cumulative Probability") {
-            command <- paste("qweibull(.00005, shape=", shape, 
+            command <- paste("xmin <- qweibull(.00005, shape=", shape, 
                 ", scale=", scale1, ")", sep = "")
-            logger(paste("xmin <- ", command, sep = ""))
-            assign("xmin", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("qweibull(.99995, shape=", shape, 
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste("xmax <- qweibull(.99995, shape=", shape, 
                 ", scale=", scale1, ")", sep = "")
-            logger(paste("xmax <- ", command, sep = ""))
-            assign("xmax", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("seq(xmin, xmax, length=100)", sep = "")
-            logger(paste(".x <- ", command, sep = ""))
-            assign(".x", justDoIt(command), envir = .GlobalEnv)
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste(".x <- seq(xmin, xmax, length=100)", sep = "")
+            logger(paste(command, sep = ""))
+            justDoIt(command)
             doItAndPrint(paste("plot(.x, pweibull(.x, shape=", 
                 shape, ", scale=", scale1, "), xlab=\"x\", ylab=\"", 
                 fun, "\", main=expression(paste(\"Weibull Distribution: \", gamma, \" = ", 
@@ -2741,18 +2741,18 @@ function ()
             doItAndPrint("abline(h=0, col=\"gray\")")
         }
         else if (fun == "Quantile Function") {
-            command <- paste("qweibull(.00005, shape=", shape, 
+            command <- paste("xmin <- qweibull(.00005, shape=", shape, 
                 ", scale=", scale1, ")", sep = "")
-            logger(paste("xmin <- ", command, sep = ""))
-            assign("xmin", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("qweibull(.99995, shape=", shape, 
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste("xmax <- qweibull(.99995, shape=", shape, 
                 ", scale=", scale1, ")", sep = "")
-            logger(paste("xmax <- ", command, sep = ""))
-            assign("xmax", justDoIt(command), envir = .GlobalEnv)
-            command <- paste("seq(.00005, .99995, length=100)", 
+            logger(paste(command, sep = ""))
+            justDoIt(command)
+            command <- paste(".x <- seq(.00005, .99995, length=100)", 
                 sep = "")
-            logger(paste(".x <- ", command, sep = ""))
-            assign(".x", justDoIt(command), envir = .GlobalEnv)
+            logger(paste(command, sep = ""))
+            justDoIt(command)
             doItAndPrint(paste("plot(.x, qweibull(.x, shape=", 
                 shape, ", scale=", scale1, "), xlab=\"Cumulative Probability\", ylab=\"Quantile\", main=expression(paste(\"Weibull Distribution: \", gamma, \" = ", 
                 shape, ", \", beta, \" = ", scale1, "\")), type=\"l\")", 

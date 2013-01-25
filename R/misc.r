@@ -22,8 +22,8 @@ function (n, classes = 365, coincident = 2)
     upper <- min(1, exp(k * log(n) - (k - 1) * log(c)), na.rm = TRUE)
     nmin <- uniroot(f, lower = 0, upper = upper, tol = eps)
     if (nmin$root == 0 && f(.Machine$double.xmin) < 0) {
-        f <- function(ln.p) qbirthday(exp(ln.p), c, k) - n
-        nmin <- uniroot(f, lower = floor(log(.Machine$double.xmin)), 
+        g <- function(ln.p) qbirthday(exp(ln.p), c, k) - n
+        nmin <- uniroot(g, lower = floor(log(.Machine$double.xmin)), 
             upper = -2, tol = eps)
         exp(nmin$root)
     }
@@ -59,43 +59,44 @@ function (prob = 0.5, classes = 365, coincident = 2)
 
 
 
-#######
-# Need this to assign numbers below
-RcmdrEnv <- function() {
-    pos <-  match("RcmdrEnv", search())
-    if (is.na(pos)) { # Must create it
-        RcmdrEnv <- list()
-        attach(RcmdrEnv, pos = length(search()) - 1)
-        rm(RcmdrEnv)
-        pos <- match("RcmdrEnv", search())
-        }
-    return(pos.to.env(pos))
-    }
-
-###############################################################
-###############################################################
-# Extra counters
-    #assign("simsetNumber", 0, envir = RcmdrEnv())
-    #assign("datasetNumber", 0, envir = RcmdrEnv())
-    assign("betasimNumber", 0, envir = RcmdrEnv())
-    assign("chisqsimNumber", 0, envir = RcmdrEnv())
-    assign("binomsimNumber", 0, envir = RcmdrEnv())
-    assign("hypersimNumber", 0, envir = RcmdrEnv())
-    assign("gammasimNumber", 0, envir = RcmdrEnv())
-    assign("expsimNumber", 0, envir = RcmdrEnv())
-    assign("normsimNumber", 0, envir = RcmdrEnv())
-    assign("fsimNumber", 0, envir = RcmdrEnv())
-    assign("tsimNumber", 0, envir = RcmdrEnv())
-    assign("cauchysimNumber", 0, envir = RcmdrEnv())
-    assign("geomsimNumber", 0, envir = RcmdrEnv())
-    assign("lnormsimNumber", 0, envir = RcmdrEnv())
-    assign("logissimNumber", 0, envir = RcmdrEnv())
-    assign("nbinomsimNumber", 0, envir = RcmdrEnv())
-    assign("poissimNumber", 0, envir = RcmdrEnv())
-    assign("weibullsimNumber", 0, envir = RcmdrEnv())
-    assign("unifsimNumber", 0, envir = RcmdrEnv())
-    assign("disunifsimNumber", 0, envir = RcmdrEnv())
-
-###############################################################
-###############################################################
-# End Extra counters
+# #######
+# # Need this to assign numbers below
+# RcmdrEnv <- function() {
+#     pos <- match("RcmdrEnv", search())
+#     if (is.na(pos)) { # Must create it
+#         RcmdrEnv <- list()
+#         attach(RcmdrEnv, pos = length(search()) - 1)
+#         on.exit(detach(RcmdrEnv))
+#         rm(RcmdrEnv)
+#         pos <- match("RcmdrEnv", search())
+#         }
+#     return(pos.to.env(pos))
+#     }
+# 
+# ###############################################################
+# ###############################################################
+# # Extra counters
+#     #assign("simsetNumber", 0, envir = RcmdrEnv())
+#     #assign("datasetNumber", 0, envir = RcmdrEnv())
+#     assign("betasimNumber", 0, envir = RcmdrEnv())
+#     assign("chisqsimNumber", 0, envir = RcmdrEnv())
+#     assign("binomsimNumber", 0, envir = RcmdrEnv())
+#     assign("hypersimNumber", 0, envir = RcmdrEnv())
+#     assign("gammasimNumber", 0, envir = RcmdrEnv())
+#     assign("expsimNumber", 0, envir = RcmdrEnv())
+#     assign("normsimNumber", 0, envir = RcmdrEnv())
+#     assign("fsimNumber", 0, envir = RcmdrEnv())
+#     assign("tsimNumber", 0, envir = RcmdrEnv())
+#     assign("cauchysimNumber", 0, envir = RcmdrEnv())
+#     assign("geomsimNumber", 0, envir = RcmdrEnv())
+#     assign("lnormsimNumber", 0, envir = RcmdrEnv())
+#     assign("logissimNumber", 0, envir = RcmdrEnv())
+#     assign("nbinomsimNumber", 0, envir = RcmdrEnv())
+#     assign("poissimNumber", 0, envir = RcmdrEnv())
+#     assign("weibullsimNumber", 0, envir = RcmdrEnv())
+#     assign("unifsimNumber", 0, envir = RcmdrEnv())
+#     assign("disunifsimNumber", 0, envir = RcmdrEnv())
+# 
+# ###############################################################
+# ###############################################################
+# # End Extra counters

@@ -96,10 +96,10 @@ function ()
             return()
         }
         closeDialog()
-        command <- paste("matrix(c(", paste(counts, collapse = ","), 
+        command <- paste(".Table <- matrix(c(", paste(counts, collapse = ","), 
             "), ", nrows, ", ", ncols, ", byrow=TRUE)", sep = "")
-        assign(".Table", justDoIt(command), envir = .GlobalEnv)
-        logger(paste(".Table <- ", command, sep = ""))
+        justDoIt(command)
+        logger(paste(command, sep = ""))
         command <- paste("c(", paste(paste("'", row.names, "'", 
             sep = ""), collapse = ", "), ")", sep = "")
         justDoIt(paste("rownames(.Table) <- ", command, sep = ""))
@@ -242,10 +242,10 @@ function ()
             return()
         }
         closeDialog()
-        command <- paste("matrix(c(", paste(counts, collapse = ","), 
+        command <- paste(".Table <- matrix(c(", paste(counts, collapse = ","), 
             "), ", nrows, ", ", ncols, ", byrow=TRUE)", sep = "")
-        assign(".Table", justDoIt(command), envir = .GlobalEnv)
-        logger(paste(".Table <- ", command, sep = ""))
+        justDoIt(command)
+        logger(paste(command, sep = ""))
         command <- paste("c(", paste(paste("'", row.names, "'", 
             sep = ""), collapse = ", "), ")", sep = "")
         justDoIt(paste("rownames(.Table) <- ", command, sep = ""))

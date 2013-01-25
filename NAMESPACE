@@ -1,3 +1,5 @@
-import(tcltk, stats)
+import(stats, Rcmdr)
+#importFrom(e1071, skewness, kurtosis)
+#importFrom(abind, abind)
 exportPattern("^[^\\.]")
 

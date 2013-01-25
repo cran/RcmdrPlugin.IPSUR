@@ -5,20 +5,19 @@
 An IPSUR Plugin for the R Commander
 }
 \description{
-  This package accompanies Introduction to Probability and Statistics Using R by G. Jay Kerns.
-  It contributes functions unique to the book as well as specific configuration and selected functionality to the R Commander by John Fox.
-
+ This package is an R Commander plugin that accompanies IPSUR, an Introduction to Probability and Statistics Using R.
 }
 \details{
 \tabular{ll}{
 Package: \tab RcmdrPlugin.IPSUR\cr
-Version: \tab 0.1-8\cr
-Date: \tab 2012-03-23\cr
-Depends: \tab Rcmdr (>= 1.4-0), rgl\cr
+Version: \tab 0.2-0\cr
+Date: \tab 2013-01-25\cr
+Imports: \tab Rcmdr (>= 1.4-0), abind, e1071\cr
 Suggests: \tab abind, car, distr, distrEx, e1071, effects (>= 1.0-7), foreign, grid, lattice, lmtest, MASS, mgcv, multcomp (>= 0.991-2), nlme, nnet, qcc, relimp, RODBC\cr
-LazyLoad: \tab no\cr
+LazyLoad: \tab yes\cr
+LazyData: \tab yes\cr
 License: \tab GPL (>= 2)\cr
-URL: \tab http://www.r-project.org, http://ipsur.r-forge.r-project.org/\cr
+URL: \tab http://www.r-project.org, http://ipsur.org/\cr
 }
 
 }

@@ -4,10 +4,11 @@
 function (data, statistics = c("mean", "sd", "skewness", "kurtosis", 
     "quantiles"), quantiles = c(0, 0.25, 0.5, 0.75, 1), groups) 
 {
-    if (!require(abind)) 
-        stop("abind package missing")
-    if (!require(e1071)) 
+  if (!requireNamespace("abind", quietly = TRUE)) {
+    stop("abind package missing")
+  } else if (!requireNamespace("e1071", quietly = TRUE)){
         stop("e1071 package missing")
+  } else {
     data <- as.data.frame(data)
     if (!missing(groups)) 
         groups <- as.factor(groups)
@@ -70,10 +71,10 @@ function (data, statistics = c("mean", "sd", "skewness", "kurtosis",
             table[, "sd"] <- sd(data[, variables], na.rm = TRUE)
         if ("skewness" %in% stats) 
             table[, "skewness"] <- apply(as.matrix(data[, variables]), 
-                MARGIN = 2, skewness, na.rm = TRUE)
+                MARGIN = 2, e1071::skewness, na.rm = TRUE)
         if ("kurtosis" %in% stats) 
             table[, "kurtosis"] <- apply(as.matrix(data[, variables]), 
-                MARGIN = 2, kurtosis, na.rm = TRUE)
+                MARGIN = 2, e1071::kurtosis, na.rm = TRUE)
         if ("quantiles" %in% statistics) {
             table[, quants] <- t(apply(data[, variables, drop = FALSE], 
                 2, quantile, probs = quantiles, na.rm = TRUE))
@@ -97,10 +98,10 @@ function (data, statistics = c("mean", "sd", "skewness", "kurtosis",
                   groups, sd, na.rm = TRUE)
             if ("skewness" %in% stats) 
                 table[, "skewness", variable] <- tapply(data[, 
-                  variable], groups, skewness, na.rm = TRUE)
+                  variable], groups, e1071::skewness, na.rm = TRUE)
             if ("kurtosis" %in% stats) 
                 table[, "kurtosis", variable] <- tapply(data[, 
-                  variable], groups, kurtosis, na.rm = TRUE)
+                  variable], groups, e1071::kurtosis, na.rm = TRUE)
             if ("quantiles" %in% statistics) {
                 res <- matrix(unlist(tapply(data[, variable], 
                   groups, quantile, probs = quantiles, na.rm = TRUE)), 
@@ -126,12 +127,16 @@ function (data, statistics = c("mean", "sd", "skewness", "kurtosis",
         result$NAs <- NAs
     class(result) <- "numSummaryIPSUR"
     result
-}
 
+  }
+}
 
 `print.numSummaryIPSUR` <-
 function (x, ...) 
 {
+  if (!requireNamespace("abind", quietly = TRUE)) {
+    stop("abind package missing")
+  } else {
     NAs <- x$NAs
     table <- x$table
     n <- x$n
@@ -181,10 +186,10 @@ function (x, ...)
             print(table)
         }
         else {
-            table <- abind(table, t(n), along = 2)
+            table <- abind::abind(table, t(n), along = 2)
             dimnames(table)[[2]][dim(table)[2]] <- "n"
             if (!is.null(NAs)) {
-                table <- abind(table, t(NAs), along = 2)
+                table <- abind::abind(table, t(NAs), along = 2)
                 dimnames(table)[[2]][dim(table)[2]] <- "NA"
             }
             nms <- dimnames(table)[[3]]
@@ -195,4 +200,5 @@ function (x, ...)
         }
     })
     invisible(x)
+  }
 }

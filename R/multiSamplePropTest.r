@@ -67,10 +67,10 @@ function ()
             return()
         }
         closeDialog()
-        command <- paste("xtabs(~", groups, "+", x, ", data=", 
+        command <- paste(".Table <- xtabs(~", groups, "+", x, ", data=", 
             ActiveDataSet(), ")", sep = "")
         logger(paste(".Table <-", command))
-        assign(".Table", justDoIt(command), envir = .GlobalEnv)
+        justDoIt(command)
         doItAndPrint("rowPercents(.Table)")
         doItAndPrint(paste("prop.test(.Table)", sep = ""))
         logger("remove(.Table)")

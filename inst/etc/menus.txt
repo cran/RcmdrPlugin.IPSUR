@@ -49,41 +49,41 @@
 
 #################################################################################################################################################
 #################################################################################################################################################
-###                          ##
-###  DISTRIBUTIONS MENU      ##
-###  Last modified 02/14/08  ##
-###                          ##
-###############################
+###                            ###
+###  DISTRIBUTIONS MENU        ###
+###  Last modified 2014-08-29  ###
+###                            ###
+##################################
 
-##########################################################################################################
-#  Sampling Distributions
-
-  menu  samplingIpsurMenu      distributionsMenu     ""                                                 ""                                    ""	""
-  item  distributionsMenu      cascade               "Sampling Distributions (IPSUR)"                   samplingIpsurMenu                     ""	""
-
-  menu  cntsamplingIpsurMenu   samplingIpsurMenu     ""                                                 ""                                    ""	""
-  item  samplingIpsurMenu      cascade               "Continuous Distributions"                         cntsamplingIpsurMenu                  ""	""
-  item  cntsamplingIpsurMenu   command               "Beta population..."                               betaDistributionSamples.ipsur         ""	""
-  item  cntsamplingIpsurMenu   command               "Cauchy population..."                             CauchyDistributionSamples.ipsur       ""	""
-  item  cntsamplingIpsurMenu   command               "Chi-squared population..."                        chisquareDistributionSamples.ipsur    ""	""
-  item  cntsamplingIpsurMenu   command               "Exponential population..."                        exponentialDistributionSamples.ipsur  ""	""
-  item  cntsamplingIpsurMenu   command               "F population..."                                  FDistributionSamples.ipsur            ""	""
-  item  cntsamplingIpsurMenu   command               "Gamma population..."                              gammaDistributionSamples.ipsur        ""	""
-  item  cntsamplingIpsurMenu   command               "Lognormal population..."                          lognormalDistributionSamples.ipsur    ""	""
-  item  cntsamplingIpsurMenu   command               "Logistic population..."                           logisticDistributionSamples.ipsur     ""	""
-  item  cntsamplingIpsurMenu   command               "Normal population..."                             normalDistributionSamples.ipsur       ""	""
-  item  cntsamplingIpsurMenu   command               "Student's t population..."                        tDistributionSamples.ipsur            ""	""
-  item  cntsamplingIpsurMenu   command               "Uniform population..."                            uniformDistributionSamples.ipsur      ""	""
-  item  cntsamplingIpsurMenu   command               "Weibull population..."                            WeibullDistributionSamples.ipsur      ""	""
-
-  menu  dscsamplingIpsurMenu   samplingIpsurMenu     ""                                                 ""                                    ""	""
-  item  samplingIpsurMenu      cascade               "Discrete Distributions"                           dscsamplingIpsurMenu                  ""	""
-  item  dscsamplingIpsurMenu   command               "Binomial population..."                           binomialDistributionSamples.ipsur     ""	""
-  item  dscsamplingIpsurMenu   command               "Discrete uniform population..."                   disunifDistributionSamples.ipsur      ""	""
-  item  dscsamplingIpsurMenu   command               "Geometric population..."                          geomDistributionSamples.ipsur         ""	""
-  item  dscsamplingIpsurMenu   command               "Hypergeometric population..."                     hyperDistributionSamples.ipsur        ""	""
-  item  dscsamplingIpsurMenu   command               "Negative binomial population..."                  negbinomialDistributionSamples.ipsur  ""	""
-  item  dscsamplingIpsurMenu   command               "Poisson population..."                            PoissonDistributionSamples.ipsur      ""	""
+# ##########################################################################################################
+# #  Sampling Distributions
+# 
+#   menu  samplingIpsurMenu      distributionsMenu     ""                                                 ""                                    ""	""
+#   item  distributionsMenu      cascade               "Sampling Distributions (IPSUR)"                   samplingIpsurMenu                     ""	""
+# 
+#   menu  cntsamplingIpsurMenu   samplingIpsurMenu     ""                                                 ""                                    ""	""
+#   item  samplingIpsurMenu      cascade               "Continuous Distributions"                         cntsamplingIpsurMenu                  ""	""
+#   item  cntsamplingIpsurMenu   command               "Beta population..."                               betaDistributionSamples.ipsur         ""	""
+#   item  cntsamplingIpsurMenu   command               "Cauchy population..."                             CauchyDistributionSamples.ipsur       ""	""
+#   item  cntsamplingIpsurMenu   command               "Chi-squared population..."                        chisquareDistributionSamples.ipsur    ""	""
+#   item  cntsamplingIpsurMenu   command               "Exponential population..."                        exponentialDistributionSamples.ipsur  ""	""
+#   item  cntsamplingIpsurMenu   command               "F population..."                                  FDistributionSamples.ipsur            ""	""
+#   item  cntsamplingIpsurMenu   command               "Gamma population..."                              gammaDistributionSamples.ipsur        ""	""
+#   item  cntsamplingIpsurMenu   command               "Lognormal population..."                          lognormalDistributionSamples.ipsur    ""	""
+#   item  cntsamplingIpsurMenu   command               "Logistic population..."                           logisticDistributionSamples.ipsur     ""	""
+#   item  cntsamplingIpsurMenu   command               "Normal population..."                             normalDistributionSamples.ipsur       ""	""
+#   item  cntsamplingIpsurMenu   command               "Student's t population..."                        tDistributionSamples.ipsur            ""	""
+#   item  cntsamplingIpsurMenu   command               "Uniform population..."                            uniformDistributionSamples.ipsur      ""	""
+#   item  cntsamplingIpsurMenu   command               "Weibull population..."                            WeibullDistributionSamples.ipsur      ""	""
+# 
+#   menu  dscsamplingIpsurMenu   samplingIpsurMenu     ""                                                 ""                                    ""	""
+#   item  samplingIpsurMenu      cascade               "Discrete Distributions"                           dscsamplingIpsurMenu                  ""	""
+#   item  dscsamplingIpsurMenu   command               "Binomial population..."                           binomialDistributionSamples.ipsur     ""	""
+#   item  dscsamplingIpsurMenu   command               "Discrete uniform population..."                   disunifDistributionSamples.ipsur      ""	""
+#   item  dscsamplingIpsurMenu   command               "Geometric population..."                          geomDistributionSamples.ipsur         ""	""
+#   item  dscsamplingIpsurMenu   command               "Hypergeometric population..."                     hyperDistributionSamples.ipsur        ""	""
+#   item  dscsamplingIpsurMenu   command               "Negative binomial population..."                  negbinomialDistributionSamples.ipsur  ""	""
+#   item  dscsamplingIpsurMenu   command               "Poisson population..."                            PoissonDistributionSamples.ipsur      ""	""
 
 ##########################################################################################################
 # Discrete Distributions
