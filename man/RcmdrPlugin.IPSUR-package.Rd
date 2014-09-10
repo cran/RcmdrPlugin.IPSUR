@@ -10,9 +10,9 @@ An IPSUR Plugin for the R Commander
 \details{
 \tabular{ll}{
 Package: \tab RcmdrPlugin.IPSUR\cr
-Version: \tab 0.2-0\cr
-Date: \tab 2013-01-25\cr
-Imports: \tab Rcmdr (>= 1.4-0), abind, e1071\cr
+Version: \tab 0.2-1\cr
+Date: \tab 2014-09-10\cr
+Imports: \tab Rcmdr (>= 2.1-0)\cr
 Suggests: \tab abind, car, distr, distrEx, e1071, effects (>= 1.0-7), foreign, grid, lattice, lmtest, MASS, mgcv, multcomp (>= 0.991-2), nlme, nnet, qcc, relimp, RODBC\cr
 LazyLoad: \tab yes\cr
 LazyData: \tab yes\cr

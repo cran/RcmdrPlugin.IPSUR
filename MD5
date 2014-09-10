@@ -1,4 +1,4 @@
-d1cd32f51fb0de75de59c16578c843c5 *DESCRIPTION
+9c3e31d52157e969c00ff3eaf41a4ce0 *DESCRIPTION
 fd51b8f4854abcb444158b2a932fb370 *NAMESPACE
 6b78ab2795631724438aa85b49558572 *R/First.r
 78abf7ceb2473d4fa25c88c931daadb5 *R/enterTableProportionsTest.r
@@ -18,12 +18,12 @@ d3b86828e9876912d83d22d427cf1ca8 *R/statistics-tables-menu.R
 a8e0549e98acb5727135bd8aba2ebfdf *data/FeedingTimes.txt.gz
 ac6c531fae49f7494deb632d4fa27c28 *data/RcmdrTestDrive.txt.gz
 4585daf2f6cd6f7c09417bdd0647e249 *inst/CHANGES
-4d9a64b56412c73461bb449739931521 *inst/etc/menus.txt
+d3bc99adfb9e9beb29b06896da7b27fb *inst/etc/menus.txt
 39b437aef89df2c464b4213921405745 *man/BloodPressure.Rd
 0ab0042c393346e80141ed5329d77d49 *man/FeedingTimes.Rd
 e40037772e00dfa3bd5c394c2efc66c9 *man/IPSUR.Utilities.Rd
 f857e7d110fa16231f506aca91c9bdd4 *man/RcmdrPlugin.IPSUR-internal.Rd
-843d4a2d5a4dbf3693c5d97b1abdcb4e *man/RcmdrPlugin.IPSUR-package.Rd
+313cb92e4a9e34d261bd51905340311b *man/RcmdrPlugin.IPSUR-package.Rd
 566ce91c8d9ae5ca02cc6b29dd46f232 *man/RcmdrTestDrive.rd
 b96a12147c1552ab33c4119c2b7af02c *man/birthday.ipsur.Rd
 3c3d47adf71ae1f77394d8df47b5f54a *man/numSummaryIPSUR.Rd
