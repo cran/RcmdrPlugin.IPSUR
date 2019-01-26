@@ -3,3 +3,4 @@ import(stats, Rcmdr)
 #importFrom(abind, abind)
 exportPattern("^[^\\.]")
 
+S3method(print, numSummaryIPSUR)
